@@ -1,7 +1,13 @@
+require('dotenv').config();
+/*
+const springerApiKey = process.env.SPRINGER_API_KEY;
+const elsevierApiKey = process.env.ELSEVIER_API_KEY;
+*/
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
+
 
 const app = express();
 const PORT = 5000;
