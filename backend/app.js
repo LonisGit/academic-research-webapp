@@ -33,8 +33,8 @@ app.use(express.json());
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
 app.get('/api/sciencedirect/search', (req, res) => {
-    res.json({ source: 'ScienceDirect', query: req.query.query });
-  });
+  res.json({ source: 'ScienceDirect', query: req.query.query });
+});
 
 
 /**
@@ -53,10 +53,14 @@ app.get('/api/sciencedirect/search', (req, res) => {
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
+/*
 app.get('/api/springer/search', (req, res) => {
-    res.json({ source: 'SpringerLink', query: req.query.query });
-  });
-  
+  res.json({ source: 'SpringerLink', query: req.query.query });
+});
+*/
+const springerRoutes = require('./routes/springer');
+app.use('/api/springer', springerRoutes);
+
 /**
  * @swagger
  * /api/ais/search:

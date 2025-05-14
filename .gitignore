@@ -1,9 +1,9 @@
-# Node modules (Standard)
+# Node modules
 node_modules/
 
 # Umgebungsvariablen
 .env
 
-# Sonstiges (optional)
+# Sonstiges
 dist/
 build/
