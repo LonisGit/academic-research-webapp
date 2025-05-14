@@ -1,7 +1,13 @@
+require('dotenv').config();
+/*
+const springerApiKey = process.env.SPRINGER_API_KEY;
+const elsevierApiKey = process.env.ELSEVIER_API_KEY;
+*/
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
+
 
 const app = express();
 const PORT = 5000;
@@ -27,8 +33,8 @@ app.use(express.json());
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
 app.get('/api/sciencedirect/search', (req, res) => {
-    res.json({ source: 'ScienceDirect', query: req.query.query });
-  });
+  res.json({ source: 'ScienceDirect', query: req.query.query });
+});
 
 
 /**
@@ -47,10 +53,14 @@ app.get('/api/sciencedirect/search', (req, res) => {
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
+/*
 app.get('/api/springer/search', (req, res) => {
-    res.json({ source: 'SpringerLink', query: req.query.query });
-  });
-  
+  res.json({ source: 'SpringerLink', query: req.query.query });
+});
+*/
+const springerRoutes = require('./routes/springer');
+app.use('/api/springer', springerRoutes);
+
 /**
  * @swagger
  * /api/ais/search:
