@@ -8,7 +8,7 @@ router.get('/search', async (req, res) => {
   //  ?q=...
   const query = req.query.q;
 
-  const apiKey = "908ed43caa8b1028bc4582b9b0be5602";
+  const apiKey = process.env.ELSEVIER_API_KEY;
 
   //console.log('Suchbegriff:', query);
   //console.log('API-Schlüssel:', apiKey ? 'Vorhanden' : 'Fehlt');
