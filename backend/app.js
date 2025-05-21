@@ -1,13 +1,12 @@
-require('dotenv').config();
-/*
-const springerApiKey = process.env.SPRINGER_API_KEY;
-const elsevierApiKey = process.env.ELSEVIER_API_KEY;
-*/
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
+const dotenv = require('dotenv');
 const swaggerSpec = require('./swagger/swagger');
+const sciencedirectRoutes = require('./routes/sciencedirect'); // sciencedirect.js einbinden
 
+// Umgebungsvariablen laden
+dotenv.config();
 
 const app = express();
 const PORT = 5000;
@@ -15,7 +14,8 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-//Swagger comments for docs
+// ScienceDirect-Route durch sciencedirect.js ersetzen
+
 /**
  * @swagger
  * /api/sciencedirect/search:
@@ -27,14 +27,12 @@ app.use(express.json());
  *         required: true
  *         schema:
  *           type: string
- *         description: Der Suchbegriff
+ *         description: Der Suchbegriff für ScienceDirect
  *     responses:
  *       200:
- *         description: Erfolgreiche Antwort mit Suchergebnis
+ *         description: Erfolgreiche Antwort mit Suchergebnissen
  */
-app.get('/api/sciencedirect/search', (req, res) => {
-  res.json({ source: 'ScienceDirect', query: req.query.query });
-});
+app.use('/api/sciencedirect', sciencedirectRoutes);
 
 
 /**
@@ -53,19 +51,15 @@ app.get('/api/sciencedirect/search', (req, res) => {
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
-/*
 app.get('/api/springer/search', (req, res) => {
   res.json({ source: 'SpringerLink', query: req.query.query });
 });
-*/
-const springerRoutes = require('./routes/springer');
-app.use('/api/springer', springerRoutes);
 
 /**
  * @swagger
  * /api/ais/search:
  *   get:
- *     summary: Suche in ais Link
+ *     summary: Suche in AIS eLibrary
  *     parameters:
  *       - in: query
  *         name: query
@@ -81,6 +75,7 @@ app.get('/api/ais/search', (req, res) => {
   res.json({ source: 'AIS eLibrary', query: req.query.query });
 });
 
+// Swagger-Dokumentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(PORT, () => {
