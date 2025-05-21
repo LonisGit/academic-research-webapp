@@ -1,19 +1,22 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
-const sciencedirectRoutes = require('./routes/sciencedirect'); // sciencedirect.js einbinden
+const sciencedirectRoutes = require('./routes/sciencedirect');
+const springerRoutes = require('./routes/springer');
 
-// Umgebungsvariablen laden
-require('dotenv').config();
+require('dotenv').config(); // Umgebungsvariablen laden
 
 const app = express();
 const PORT = 5000;
 
+// Frontend statisch bereitstellen
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Middleware
 app.use(cors());
 app.use(express.json());
-
-// ScienceDirect-Route durch sciencedirect.js ersetzen
 
 /**
  * @swagger
@@ -33,7 +36,6 @@ app.use(express.json());
  */
 app.use('/api/sciencedirect', sciencedirectRoutes);
 
-
 /**
  * @swagger
  * /api/springer/search:
@@ -52,7 +54,7 @@ app.use('/api/sciencedirect', sciencedirectRoutes);
  */
 
 const springerRoutes = require('./routes/springer');
-app.use('/api/springer', springerRoutes);
+
 /**
  * @swagger
  * /api/ais/search:
@@ -76,6 +78,8 @@ app.get('/api/ais/search', (req, res) => {
 // Swagger-Dokumentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// Server starten
 app.listen(PORT, () => {
-  console.log(`Server läuft auf http://localhost:${PORT}`);
+  console.log(`✅ Server läuft auf http://localhost:${PORT}`);
+  console.log(`📚 Swagger UI: http://localhost:${PORT}/api-docs`);
 });

@@ -1,0 +1,113 @@
+/* Allgemeines Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f0fdf4;
+  color: #2d4739;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background: #047857;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Suchbereich */
+.search-section {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.search-section:hover {
+  transform: scale(1.01);
+}
+
+.search-section h2 {
+  color: #065f46;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Formular */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.8rem 1rem;
+  border: 2px solid #10b981;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #a7f3d0;
+}
+
+button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+.results {
+  background: #f0fdf4;
+  padding: 1rem;
+  border: 1px dashed #34d399;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #1e3a32;
+}
