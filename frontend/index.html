@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wissenschaftliche Suche</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🔎 Wissenschaftliche Suchplattform</h1>
+    <p>Durchsuche ScienceDirect, SpringerLink und AIS eLibrary</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <h2>ScienceDirect</h2>
+      <form id="sciencedirect-form">
+        <input type="text" id="sciencedirect-query" placeholder="Suchbegriff eingeben..." required />
+        <button type="submit">Suchen</button>
+      </form>
+      <div id="sciencedirect-results" class="results"></div>
+    </section>
+
+    <section class="search-section">
+      <h2>SpringerLink</h2>
+      <form id="springer-form">
+        <input type="text" id="springer-query" placeholder="Suchbegriff eingeben..." required />
+        <button type="submit">Suchen</button>
+      </form>
+      <div id="springer-results" class="results"></div>
+    </section>
+
+    <section class="search-section">
+      <h2>AIS eLibrary</h2>
+      <form id="ais-form">
+        <input type="text" id="ais-query" placeholder="Suchbegriff eingeben..." required />
+        <button type="submit">Suchen</button>
+      </form>
+      <div id="ais-results" class="results"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
