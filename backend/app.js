@@ -52,7 +52,8 @@ app.use('/api/sciencedirect', sciencedirectRoutes);
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
-app.use('/api/springer', springerRoutes);
+
+const springerRoutes = require('./routes/springer');
 
 /**
  * @swagger

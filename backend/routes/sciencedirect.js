@@ -1,65 +1,103 @@
-const express = require('express'); // Node.js Bib; für Webserver & API
-const axios = require('axios'); // GET-Anfragen
-const router = express.Router(); // Router Objekt erzeugen
+const express = require('express');
+const axios = require('axios');
+const router = express.Router();
 
 
-
+//For testing: http://localhost:5000/api/sciencedirect/search?q=virtual+reality&details=true
 router.get('/search', async (req, res) => {
-  //  ?q=...
   const query = req.query.q;
-
+  const includeDetails = req.query.details === 'true'; // ?details=true
   const apiKey = process.env.ELSEVIER_API_KEY;
 
-  //console.log('Suchbegriff:', query);
-  //console.log('API-Schlüssel:', apiKey ? 'Vorhanden' : 'Fehlt');
-
-  // Kein Suchbegriff eingegeben
   if (!query) {
-    return res.status(400).json({ error: 'Query-Parameter "q" fehlt. Bitte gib einen Suchbegriff an.' });
+    return res.status(400).json({ error: 'Query-Parameter "q" fehlt.' });
   }
 
-  // Kein API-Key gesetzt
   if (!apiKey) {
     return res.status(500).json({ error: 'ScienceDirect API-Schlüssel fehlt.' });
   }
 
-  // ScienceDirect API-Endpunkt für Suchanfragen
-  const url = 'https://api.elsevier.com/content/search/sciencedirect';
+  const searchUrl = 'https://api.elsevier.com/content/search/sciencedirect';
 
   try {
-    // GET-Anfrage an die ScienceDirect API
-    const response = await axios.get(url, {
+    const searchResponse = await axios.get(searchUrl, {
       headers: {
-        'X-ELS-APIKey': apiKey,         // API-Key zur Authentifizierung
-        'Accept': 'application/json',   // Antwort in JSON
+        'X-ELS-APIKey': apiKey,
+        'Accept': 'application/json',
       },
       params: {
-        query: encodeURIComponent(query),  // URL-kodierter Suchbegriff
+        query: query,
       },
     });
 
+    const entries = searchResponse.data['search-results']?.entry || [];
 
-    // Extrahiere die Ergebnisliste aus der API-Antwort
-    const entries = response.data['search-results']?.entry || [];
+    const formattedResults = await Promise.all(entries.map(async (entry) => {
+      const authorsArray = entry.authors?.author
+        ? Array.isArray(entry.authors.author)
+          ? entry.authors.author.map(a => a.$)
+          : [entry.authors.author.$]
+        : (entry['dc:creator'] ? [entry['dc:creator']] : []);
 
-    // Keine Einträge vorhanden
-    if (!entries.length) {
-      return res.status(200).json({ message: 'Keine Treffer gefunden.', results: [] });
-    }
+      const htmlLink = entry.link?.find(l => l['@ref'] === 'scidir')?.['@href'] || null;
 
-    // Rückgabe der Ergebnisse
-    res.json({ count: entries.length, results: entries });
+      let abstract = null;
+      let keywords = [];
+      let pdfLink = null;
+
+      if (includeDetails) {
+        try {
+          const identifier = entry.pii || (entry['dc:identifier']?.replace(/^DOI:/, '') ?? null);
+          if (identifier) {
+            const detailUrl = `https://api.elsevier.com/content/article/${entry.pii ? 'pii' : 'doi'}/${identifier}`;
+            const detailResponse = await axios.get(detailUrl, {
+              headers: {
+                'X-ELS-APIKey': apiKey,
+                'Accept': 'application/json',
+              },
+            });
+
+            const fullArticle = detailResponse.data['full-text-retrieval-response'];
+
+            abstract = fullArticle?.coredata?.dc_description || null;
+            pdfLink = fullArticle?.coredata?.link?.find(l => l['@ref'] === 'scidir')?.['@href'] || null;
+
+            const keywordList = fullArticle?.coredata?.dcterms_subject;
+            if (keywordList) {
+              keywords = Array.isArray(keywordList)
+                ? keywordList.map(k => k['$'])
+                : [keywordList['$']];
+            }
+          }
+        } catch (err) {
+          console.warn('Details konnten nicht geladen werden für:', entry['dc:title']);
+        }
+      }
+
+      return {
+        title: entry['dc:title'] || null,
+        authors: authorsArray,
+        abstract: abstract,
+        publicationDate: entry['prism:coverDate'] || null,
+        doi: entry['prism:doi'] || null,
+        journal: entry['prism:publicationName'] || null,
+        isOpenAccess: entry['openaccess'] === true || entry['openaccess'] === 'true' || entry['openaccess'] === 1,
+        pdfLink: pdfLink,
+        htmlLink: htmlLink,
+        subjects: [], // Nicht direkt verfügbar
+        keywords: keywords
+      };
+    }));
+
+    res.json({
+      source: 'ScienceDirect',
+      query,
+      count: formattedResults.length,
+      results: formattedResults,
+    });
 
   } catch (error) {
     console.error('ScienceDirect API Fehler:', error.message);
-
-    // Wenn die API eine spezifische Fehlermeldung mitliefert
-    if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Antwortdaten:', error.response.data);
-    }
-
-    // Sende eine Fehlermeldung an den Client zurück
     res.status(500).json({
       error: 'ScienceDirect API-Aufruf fehlgeschlagen.',
       details: error.response?.data || error.message,
@@ -67,5 +105,4 @@ router.get('/search', async (req, res) => {
   }
 });
 
-// Router in  server.js einbinden
 module.exports = router;
