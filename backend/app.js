@@ -1,12 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
-const dotenv = require('dotenv');
 const swaggerSpec = require('./swagger/swagger');
 const sciencedirectRoutes = require('./routes/sciencedirect'); // sciencedirect.js einbinden
 
 // Umgebungsvariablen laden
-dotenv.config();
+require('dotenv').config();
 
 const app = express();
 const PORT = 5000;
@@ -51,10 +50,8 @@ app.use('/api/sciencedirect', sciencedirectRoutes);
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
-app.get('/api/springer/search', (req, res) => {
-  res.json({ source: 'SpringerLink', query: req.query.query });
-});
-
+const springerRoutes = require('./routes/springer');
+app.use('/api/springer', springerRoutes);
 /**
  * @swagger
  * /api/ais/search:
