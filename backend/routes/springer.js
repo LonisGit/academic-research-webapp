@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-// Route: /api/springer/search?q=deinSuchbegriff
+//For testing: http://localhost:5000/api/springer/search?q=virtual+reality
 router.get('/search', async (req, res) => {
   const query = req.query.q;
   const apiKey = process.env.SPRINGER_META_KEY;
@@ -15,7 +15,7 @@ router.get('/search', async (req, res) => {
 
   try {
     const response = await axios.get(url);
-    
+
     const articles = response.data.records.map((record) => {
       const pdfLink = record.url?.find(u => u.format === 'pdf')?.value || null;
       const htmlLink = record.url?.find(u => u.format === 'html')?.value || null;

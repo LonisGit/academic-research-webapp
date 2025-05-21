@@ -2,6 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
+
+//For testing: http://localhost:5000/api/sciencedirect/search?q=virtual+reality&details=true
 router.get('/search', async (req, res) => {
   const query = req.query.q;
   const includeDetails = req.query.details === 'true'; // ?details=true
