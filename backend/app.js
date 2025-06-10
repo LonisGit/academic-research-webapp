@@ -5,6 +5,8 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
 const sciencedirectRoutes = require('./routes/sciencedirect');
 const springerRoutes = require('./routes/springer');
+const scraperRoute = require('./routes/ais');
+
 
 require('dotenv').config(); // Umgebungsvariablen laden
 
@@ -71,9 +73,7 @@ app.use('/api/springer', springerRoutes);
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
-app.get('/api/ais/search', (req, res) => {
-  res.json({ source: 'AIS eLibrary', query: req.query.query });
-});
+app.use('/api/ais', scraperRoute);
 
 // Swagger-Dokumentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
