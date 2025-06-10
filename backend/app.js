@@ -53,7 +53,7 @@ app.use('/api/sciencedirect', sciencedirectRoutes);
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
 
-const springerRoutes = require('./routes/springer');
+app.use('/api/springer', springerRoutes);
 
 /**
  * @swagger
