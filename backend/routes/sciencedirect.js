@@ -2,11 +2,10 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-
-//For testing: http://localhost:5000/api/sciencedirect/search?q=virtual+reality&details=true
+// Beispiel: http://localhost:5000/api/sciencedirect/search?q=virtual+reality
 router.get('/search', async (req, res) => {
   const query = req.query.q;
-  const includeDetails = req.query.details === 'true'; // ?details=true
+  const includeDetails = req.query.details === 'true';
   const apiKey = process.env.ELSEVIER_API_KEY;
 
   if (!query) {
@@ -27,6 +26,7 @@ router.get('/search', async (req, res) => {
       },
       params: {
         query: query,
+        view: 'STANDARD', // vermeidet geschützte Felder
       },
     });
 
@@ -45,7 +45,10 @@ router.get('/search', async (req, res) => {
       let keywords = [];
       let pdfLink = null;
 
-      if (includeDetails) {
+      const isOpenAccess = entry['openaccess'] === true || entry['openaccess'] === 'true' || entry['openaccess'] === 1;
+
+      // Nur Details laden, wenn erlaubt & Open Access
+      if (includeDetails && isOpenAccess) {
         try {
           const identifier = entry.pii || (entry['dc:identifier']?.replace(/^DOI:/, '') ?? null);
           if (identifier) {
@@ -58,9 +61,7 @@ router.get('/search', async (req, res) => {
             });
 
             const fullArticle = detailResponse.data['full-text-retrieval-response'];
-
             abstract = fullArticle?.coredata?.dc_description || null;
-            pdfLink = fullArticle?.coredata?.link?.find(l => l['@ref'] === 'scidir')?.['@href'] || null;
 
             const keywordList = fullArticle?.coredata?.dcterms_subject;
             if (keywordList) {
@@ -68,24 +69,26 @@ router.get('/search', async (req, res) => {
                 ? keywordList.map(k => k['$'])
                 : [keywordList['$']];
             }
+
+            pdfLink = fullArticle?.coredata?.link?.find(l => l['@ref'] === 'scidir')?.['@href'] || null;
           }
         } catch (err) {
-          console.warn('Details konnten nicht geladen werden für:', entry['dc:title']);
+          console.warn(`Details für ${entry['dc:title']} konnten nicht geladen werden: ${err.message}`);
         }
       }
 
       return {
         title: entry['dc:title'] || null,
         authors: authorsArray,
-        abstract: abstract,
+        abstract,
         publicationDate: entry['prism:coverDate'] || null,
         doi: entry['prism:doi'] || null,
         journal: entry['prism:publicationName'] || null,
-        isOpenAccess: entry['openaccess'] === true || entry['openaccess'] === 'true' || entry['openaccess'] === 1,
-        pdfLink: pdfLink,
-        htmlLink: htmlLink,
-        subjects: [], // Nicht direkt verfügbar
-        keywords: keywords
+        isOpenAccess,
+        pdfLink,
+        htmlLink,
+        subjects: [], // nicht verfügbar in Search-API
+        keywords,
       };
     }));
 

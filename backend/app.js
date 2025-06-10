@@ -80,6 +80,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Server starten
 app.listen(PORT, () => {
-  console.log(`✅ Server läuft auf http://localhost:${PORT}`);
-  console.log(`📚 Swagger UI: http://localhost:${PORT}/api-docs`);
+  console.log(`Server läuft auf http://localhost:${PORT}`);
+  console.log(`Swagger UI: http://localhost:${PORT}/api-docs`);
+  console.log(`Test-Suche Springer: http://localhost:${PORT}/api/springer/search?q=virtual+reality`);
+  console.log(`Test-Suche ScienceDirect: http://localhost:${PORT}/api/sciencedirect/search?q=virtual+reality`);
 });
