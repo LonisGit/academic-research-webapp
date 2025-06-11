@@ -5,6 +5,8 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
 const sciencedirectRoutes = require('./routes/sciencedirect');
 const springerRoutes = require('./routes/springer');
+const scraperRoute = require('./routes/ais');
+
 
 require('dotenv').config(); // Umgebungsvariablen laden
 
@@ -53,7 +55,7 @@ app.use('/api/sciencedirect', sciencedirectRoutes);
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
 
-const springerRoutes = require('./routes/springer');
+app.use('/api/springer', springerRoutes);
 
 /**
  * @swagger
@@ -71,15 +73,15 @@ const springerRoutes = require('./routes/springer');
  *       200:
  *         description: Erfolgreiche Antwort mit Suchergebnis
  */
-app.get('/api/ais/search', (req, res) => {
-  res.json({ source: 'AIS eLibrary', query: req.query.query });
-});
+app.use('/api/ais', scraperRoute);
 
 // Swagger-Dokumentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Server starten
 app.listen(PORT, () => {
-  console.log(`✅ Server läuft auf http://localhost:${PORT}`);
-  console.log(`📚 Swagger UI: http://localhost:${PORT}/api-docs`);
+  console.log(`Server läuft auf http://localhost:${PORT}`);
+  console.log(`Swagger UI: http://localhost:${PORT}/api-docs`);
+  console.log(`Test-Suche Springer: http://localhost:${PORT}/api/springer/search?q=virtual+reality`);
+  console.log(`Test-Suche ScienceDirect: http://localhost:${PORT}/api/sciencedirect/search?q=virtual+reality`);
 });
