@@ -38,7 +38,7 @@ function renderResults(results) {
   const container = document.getElementById('results');
   container.innerHTML = '';
   if (!results.length) {
-    container.innerHTML = '<p>❌ Keine Ergebnisse gefunden.</p>';
+    container.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
     return;
   }
 
@@ -47,11 +47,11 @@ function renderResults(results) {
     const keywords = r.keywords?.join(', ') || 'Keine';
     const journal = r.journal || 'Nicht verfügbar';
     const date = r.publicationDate || 'Unbekannt';
-    const access = r.isOpenAccess ? '🟢 Open Access' : '🔒 Zugriff erforderlich';
+    const access = r.isOpenAccess ? 'Open Access' : 'Kein Open Access';
     const doi = r.doi ? `<a href="https://doi.org/${r.doi}" target="_blank">DOI</a>` : 'DOI nicht verfügbar';
 
-    const pdf = r.pdfLink ? `<a href="${r.pdfLink}" target="_blank">📄 PDF</a>` : '';
-    const html = r.htmlLink ? `<a href="${r.htmlLink}" target="_blank">🌐 HTML</a>` : '';
+    const pdf = r.pdfLink ? `<a href="${r.pdfLink}" target="_blank">PDF</a>` : '';
+    const html = r.htmlLink ? `<a href="${r.htmlLink}" target="_blank">HTML</a>` : '';
 
     const div = document.createElement('div');
     div.className = 'result-card';
@@ -65,7 +65,7 @@ function renderResults(results) {
       <p><strong>DOI:</strong> ${doi}</p>
       <p>${r.abstract || 'Kein Abstract verfügbar'}</p>
       <p>${pdf} ${html}</p>
-      <p><a href="${r.url}" target="_blank">Zur Quelle (${r.source})</a></p>
+      
     `;
     container.appendChild(div);
   });
