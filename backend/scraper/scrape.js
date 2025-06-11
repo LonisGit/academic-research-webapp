@@ -1,7 +1,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-async function scrape(url) {
+async function scrapeAIS(query) {
+  const url = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=0&context=default`;
+
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
@@ -13,8 +15,8 @@ async function scrape(url) {
       const abstract = $(el).find('.artifact-abstract p').text().trim();
 
       const authors = [];
-      $(el).find('.artifact-authors a').each((i, authorEl) => {
-        authors.push($(authorEl).text().trim());
+      $(el).find('.artifact-authors a').each((_, a) => {
+        authors.push($(a).text().trim());
       });
 
       articles.push({ title, abstract, authors });
@@ -27,4 +29,4 @@ async function scrape(url) {
   }
 }
 
-module.exports = scrape;
+module.exports = scrapeAIS;
