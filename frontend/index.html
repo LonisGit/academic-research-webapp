@@ -1,45 +1,28 @@
-<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wissenschaftliche Suche</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🔎 Wissenschaftliche Suchplattform</h1>
-    <p>Durchsuche ScienceDirect, SpringerLink und AIS eLibrary</p>
+    <h1>Wissenschaftliche Publikationen suchen</h1>
   </header>
 
-  <main>
-    <section class="search-section">
-      <h2>ScienceDirect</h2>
-      <form id="sciencedirect-form">
-        <input type="text" id="sciencedirect-query" placeholder="Suchbegriff eingeben..." required />
-        <button type="submit">Suchen</button>
-      </form>
-      <div id="sciencedirect-results" class="results"></div>
-    </section>
+  <div class="tab-selector">
+    <button class="active" data-source="all">Alle</button>
+    <button data-source="sciencedirect">ScienceDirect</button>
+    <button data-source="springer">Springer</button>
+    <button data-source="ais">AIS E-Libary</button>
+  </div>
 
-    <section class="search-section">
-      <h2>SpringerLink</h2>
-      <form id="springer-form">
-        <input type="text" id="springer-query" placeholder="Suchbegriff eingeben..." required />
-        <button type="submit">Suchen</button>
-      </form>
-      <div id="springer-results" class="results"></div>
-    </section>
+  <div class="search-box">
+    <input type="text" id="search-query" placeholder="Suche nach wissenschaftlichen Artikeln..." />
+    <button onclick="performSearch()">Suchen</button>
+  </div>
 
-    <section class="search-section">
-      <h2>AIS eLibrary</h2>
-      <form id="ais-form">
-        <input type="text" id="ais-query" placeholder="Suchbegriff eingeben..." required />
-        <button type="submit">Suchen</button>
-      </form>
-      <div id="ais-results" class="results"></div>
-    </section>
-  </main>
+  <div class="results" id="results"></div>
 
   <script src="script.js"></script>
 </body>
