@@ -1,39 +1,42 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const puppeteer = require('puppeteer');
 
 async function scrapeAIS(query) {
   const url = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=0&context=default`;
 
-  try {
-    const headers = {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      'Referer': 'https://aisel.aisnet.org/',
-    };
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
 
-    const { data } = await axios.get(url, { headers });
-    const $ = cheerio.load(data);
+  await page.setUserAgent(
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0 Safari/537.36'
+  );
 
-    const articles = [];
+  await page.goto(url, { waitUntil: 'networkidle2' });
 
-    $('.artifact-description').each((i, el) => {
-      const title = $(el).find('h3 a').text().trim();
-      const abstract = $(el).find('.artifact-abstract p').text().trim();
-      const authors = [];
+  const articles = await page.evaluate(() => {
+    const results = [];
+    const elements = document.querySelectorAll('.artifact-description');
 
-      $(el).find('.artifact-authors a').each((_, a) => {
-        authors.push($(a).text().trim());
-      });
+    elements.forEach(el => {
+      const titleEl = el.querySelector('h3 a');
+      const abstractEl = el.querySelector('.artifact-abstract p');
+      const authorEls = el.querySelectorAll('.artifact-authors a');
 
-      articles.push({ title, abstract, authors });
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      const abstract = abstractEl ? abstractEl.textContent.trim() : '';
+      const authors = Array.from(authorEls).map(a => a.textContent.trim());
+
+      results.push({ title, abstract, authors });
     });
 
-    return articles;
-  } catch (error) {
-    console.error('Fehler beim Scrapen:', error.message);
-    throw error;
-  }
+    return results;
+  });
+
+  await browser.close();
+  return articles;
 }
+
+scrapeAIS('digital transformation')
+  .then(results => console.log(results))
+  .catch(err => console.error('Fehler beim Scrapen:', err));
 
 module.exports = scrapeAIS;
