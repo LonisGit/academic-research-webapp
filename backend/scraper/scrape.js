@@ -12,6 +12,11 @@ async function scrapeAIS(query) {
 
   await page.goto(url, { waitUntil: 'networkidle2' });
 
+  const content = await page.content();
+  //console.log(content);
+
+  //await page.waitForSelector('.artifact-description', { timeout: 5000 });
+
   const articles = await page.evaluate(() => {
     const results = [];
     const elements = document.querySelectorAll('.artifact-description');

@@ -9,7 +9,7 @@ router.get('/search', async (req, res) => {
 
   try {
     const articles = await scrapeAIS(query);
-    res.json({ source: 'AIS', query, count: articles.length, results: articles });
+    res.json({ source: 'AIS', query, count: articles.length, results: articles});
   } catch (err) {
     res.status(500).json({ error: 'Scraping fehlgeschlagen', details: err.message });
   }
