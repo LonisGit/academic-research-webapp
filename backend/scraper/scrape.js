@@ -40,11 +40,13 @@ async function scrapeAIS(query) {
 
     await page.waitForNavigation({ waitUntil: 'networkidle2' });
 
-    // Optional: Screenshot und HTML speichern
+    /*
+    // Debug: Screenshot und HTML speichern
     const html = await page.content();
     fs.writeFileSync('debug.html', html);
     await page.screenshot({ path: 'debug.png', fullPage: true });
-
+    */
+   
     // Ergebnisse extrahieren
     const articles = await page.evaluate(() => {
       const items = [];
