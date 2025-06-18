@@ -4,7 +4,6 @@ const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger');
 const sciencedirectRoutes = require('./routes/sciencedirect');
-
 const springerRoutes = require('./routes/springer');
 const scraperRoute = require('./routes/ais');
 
@@ -86,4 +85,5 @@ app.listen(PORT, () => {
   console.log(`Swagger UI: http://localhost:${PORT}/api-docs`);
   console.log(`Test-Suche Springer: http://localhost:${PORT}/api/springer/search?q=virtual+reality`);
   console.log(`Test-Suche ScienceDirect: http://localhost:${PORT}/api/sciencedirect/search?q=virtual+reality`);
+  console.log(`Test-Suche ScienceDirect: http://localhost:${PORT}/api/ais/search?q=virtual+reality`);
 });
