@@ -6,42 +6,29 @@ async function scrapeAIS(query) {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
-  await page.setUserAgent(
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0 Safari/537.36'
-  );
+  try {
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
 
-  await page.goto(url, { waitUntil: 'networkidle2' });
+    await page.waitForSelector('.artifact-description', { timeout: 10000 });
 
-  const html = await page.content();
-  require('fs').writeFileSync('debug.html', html);
-  console.log('HTML gespeichert.');
-
-
-  const articles = await page.evaluate(() => {
-    const results = [];
-    const elements = document.querySelectorAll('.artifact-description');
-
-    elements.forEach(el => {
-      const titleEl = el.querySelector('h3 a');
-      const abstractEl = el.querySelector('.artifact-abstract p');
-      const authorEls = el.querySelectorAll('.artifact-authors a');
-
-      const title = titleEl ? titleEl.textContent.trim() : '';
-      const abstract = abstractEl ? abstractEl.textContent.trim() : '';
-      const authors = Array.from(authorEls).map(a => a.textContent.trim());
-
-      results.push({ title, abstract, authors });
+    const articles = await page.evaluate(() => {
+      const items = [];
+      document.querySelectorAll('.artifact-description').forEach(el => {
+        const title = el.querySelector('h3 a')?.textContent?.trim() || '';
+        const abstract = el.querySelector('.artifact-abstract p')?.textContent?.trim() || '';
+        const authors = Array.from(el.querySelectorAll('.artifact-authors a')).map(a => a.textContent.trim());
+        items.push({ title, abstract, authors });
+      });
+      return items;
     });
 
-    return results;
-  });
-
-  await browser.close();
-  return articles;
+    return articles;
+  } catch (error) {
+    console.error('Scraping fehlgeschlagen:', error.message);
+    throw new Error('Scraping fehlgeschlagen');
+  } finally {
+    await browser.close();
+  }
 }
-
-scrapeAIS('digital transformation')
-  .then(results => console.log(results))
-  .catch(err => console.error('Fehler beim Scrapen:', err));
 
 module.exports = scrapeAIS;
