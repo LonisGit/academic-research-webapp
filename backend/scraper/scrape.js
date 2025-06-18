@@ -1,4 +1,6 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 async function scrapeAIS(query) {
   const url = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=0&context=default`;
@@ -8,6 +10,8 @@ async function scrapeAIS(query) {
 
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    
+    await page.screenshot({ path: 'debug.png', fullPage: true });
 
     await page.waitForSelector('.artifact-description', { timeout: 10000 });
 
