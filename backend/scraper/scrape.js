@@ -10,7 +10,12 @@ async function scrapeAIS(query) {
 
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-    
+
+    //Cookies
+    await page.waitForSelector('#onetrust-accept-btn-handler', { timeout: 5000 });
+    await page.click('#onetrust-accept-btn-handler');
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     await page.screenshot({ path: 'debug.png', fullPage: true });
 
     await page.waitForSelector('.artifact-description', { timeout: 10000 });
