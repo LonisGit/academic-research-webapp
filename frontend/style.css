@@ -112,3 +112,10 @@ header h1 {
   color: var(--dark-green);
   font-weight: bold;
 }
+
+.abstract {
+  background-color: #f9f9f9;
+  padding: 8px;
+  margin: 8px 0;
+  border: 4px solid #ccc;
+}
