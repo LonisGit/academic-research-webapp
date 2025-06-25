@@ -71,17 +71,24 @@ async function scrapeAIS(query) {
         const detailPage = await browser.newPage();
         await detailPage.goto(article.detailLink, { waitUntil: 'domcontentloaded' });
 
+        /*
+        // Debug-Ausgabe pro Detailseite (z.B. 67.html, 67.png)
+        const id = article.detailLink.split('/').filter(Boolean).pop(); // "67"
+        const html = await detailPage.content();
+        fs.writeFileSync(`debug_${id}.html`, html);
+        await detailPage.screenshot({ path: `debug_${id}.png`, fullPage: true });
+        */
+
         const extraData = await detailPage.evaluate(() => {
-          const getText = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+          const getMetaContent = (name) =>
+            document.querySelector(`meta[name="${name}"]`)?.content?.trim() || 'nicht verfügbar';
 
-          const abstract = getText('div.abstract');
-          const keywords = getText('div.keywords')?.replace('Keywords:', '').trim();
-          const doi = getText('span.doi')?.replace('DOI:', '').trim();
+          const abstract = getMetaContent('description');
+          const pdfLink = getMetaContent('bepress_citation_pdf_url');
 
-          const pdfLink = document.querySelector('a.pdf')?.href || '';
-
-          return { abstract, keywords, doi, pdfLink };
+          return { abstract, pdfLink };
         });
+
 
         Object.assign(article, extraData);
 
