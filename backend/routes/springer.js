@@ -35,7 +35,13 @@ router.get('/search', async (req, res) => {
       };
     });
 
-    res.json(articles);
+    res.json({
+      source: 'Springer',
+      query,
+      count: articles.length,
+      results: articles,
+    });
+
 
   } catch (error) {
     console.error('Springer API Fehler:', error.message);
