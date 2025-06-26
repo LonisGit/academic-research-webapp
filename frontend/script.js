@@ -11,7 +11,11 @@ document.querySelectorAll('.tab-selector button').forEach(btn => {
 async function performSearch() {
   const query = document.getElementById('search-query').value.trim();
   if (!query) return;
-  
+
+  document.getElementById('loader').classList.remove('hidden');
+  document.getElementById('results').innerHTML = '';
+
+
   const resultContainer = document.getElementById('results');
 
   let sources = ['sciencedirect', 'springer', 'ais'];
@@ -24,40 +28,49 @@ async function performSearch() {
       const res = await fetch(`/api/${source}/search?q=${encodeURIComponent(query)}`);
       const data = await res.json();
       if (data.results) {
-  const mapped = data.results.map(r => {
-    if (source === 'ais') {
-      return {
-        title: r.title || 'Kein Titel',
-        authors: r.authors || 'Unbekannt',
-        journal: r.publication || 'Nicht verfügbar',
-        publicationDate: r.year || 'Unbekannt',
-        abstract: 'Kein Abstract verfügbar',
-        doi: null,
-        pdfLink: null,
-        htmlLink: null,
-        keywords: [],
-        isOpenAccess: false,
-        source: 'ais'
-      };
-    } else {
-      return { ...r, source };
-    }
-  });
-  allResults.push(...mapped);
-}
+        const mapped = data.results.map(r => {
+          if (source === 'ais') {
+            return {
+              title: r.title || 'Kein Titel',
+              authors: r.authors || 'Unbekannt',
+              journal: r.publication || 'Nicht verfügbar',
+              publicationDate: r.year || 'Unbekannt',
+              abstract: 'Kein Abstract verfügbar',
+              doi: null,
+              pdfLink: null,
+              htmlLink: null,
+              keywords: [],
+              isOpenAccess: false,
+              source: 'ais'
+            };
+          } else {
+            return { ...r, source };
+          }
+        });
+        allResults.push(...mapped);
+      }
 
     } catch (err) {
       console.error(`Fehler bei ${source}:`, err);
     }
   }
 
+  // Ergebnisse zufällig (Fisher-Yates Shuffle)
+  for (let i = allResults.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allResults[i], allResults[j]] = [allResults[j], allResults[i]];
+  }
+
+
   renderResults(allResults);
+  document.getElementById('loader').classList.add('hidden');
+
 }
 
 function renderResults(results) {
   const container = document.getElementById('results');
   container.innerHTML = '';
-  
+
   if (!results.length) {
     container.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
     return;

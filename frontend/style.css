@@ -51,7 +51,7 @@ header h1 {
   border-color: #ef8230;
 }
 .tab-selector button[data-source="springer"] {
-  border-color: #01324b;
+  border-color: #192c35;
 }
 .tab-selector button[data-source="ais"] {
   border-color: #7597ae;
@@ -72,7 +72,7 @@ header h1 {
 
 .tab-selector button[data-source="springer"].active,
 .tab-selector button[data-source="springer"]:hover {
-  background: #01324b;
+  background: #192c35;
   color: white;
 }
 
@@ -157,7 +157,7 @@ header h1 {
   border-left-color: #ef8230;
 }
 .result-card.card-springer {
-  border-left-color: #01324b;
+  border-left-color: #192c35;
 }
 .result-card.card-ais {
   border-left-color: #7597ae;
