@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const scrapeAIS = require('../scraper/scrape');
+const scrapeAISDetails = require('../scraper/scrapeAISDetails');
 
 // GET /api/ais/search?q=virtual+reality
 router.get('/search', async (req, res) => {
@@ -20,6 +21,22 @@ router.get('/search', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: 'Scraping fehlgeschlagen', details: err.message });
+  }
+});
+
+// POST /api/ais/details
+router.post('/details', async (req, res) => {
+  const { detailLink } = req.body;
+
+  if (!detailLink) {
+    return res.status(400).json({ error: 'detailLink fehlt in der Anfrage.' });
+  }
+
+  try {
+    const data = await scrapeAISDetails(detailLink);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Detail-Scraping fehlgeschlagen', details: err.message });
   }
 });
 
