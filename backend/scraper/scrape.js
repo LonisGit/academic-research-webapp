@@ -64,42 +64,6 @@ async function scrapeAIS(query) {
       return items;
     });
 
-    for (const article of articles) {
-      if (!article.detailLink) continue;
-
-      try {
-        const detailPage = await browser.newPage();
-        await detailPage.goto(article.detailLink, { waitUntil: 'domcontentloaded' });
-
-        /*
-        // Debug-Ausgabe pro Detailseite (z.B. 67.html, 67.png)
-        const id = article.detailLink.split('/').filter(Boolean).pop(); // "67"
-        const html = await detailPage.content();
-        fs.writeFileSync(`debug_${id}.html`, html);
-        await detailPage.screenshot({ path: `debug_${id}.png`, fullPage: true });
-        */
-
-        const extraData = await detailPage.evaluate(() => {
-          const getMetaContent = (name) =>
-            document.querySelector(`meta[name="${name}"]`)?.content?.trim() || 'nicht verfügbar';
-
-          const abstract = getMetaContent('description');
-          const pdfLink = getMetaContent('bepress_citation_pdf_url');
-
-          return { abstract, pdfLink };
-        });
-
-
-        Object.assign(article, extraData);
-
-        await detailPage.close();
-      } catch (err) {
-        console.warn(`Detailseite konnte nicht geladen werden: ${article.detailLink}`, err.message);
-      }
-    }
-
-
-
     console.log('Gefundene Artikel:', articles.length);
     return articles;
   } catch (error) {
