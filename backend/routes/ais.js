@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const scrapeAIS = require('../scraper/scrape');
+const scrapeAISDetails = require('../scraper/scrapeAISDetails');
 
 // GET /api/ais/search?q=virtual+reality
 router.get('/search', async (req, res) => {

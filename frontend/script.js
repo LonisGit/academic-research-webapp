@@ -114,11 +114,10 @@ function renderResults(results) {
 
         const data = await res.json();
 
+        console.log('Details geladen:', data);
+
         results[index].abstract = data.abstract;
         results[index].pdfLink = data.pdfLink;
-        renderResults(results);
-
-
         renderResults(results);
 
       } catch (err) {
