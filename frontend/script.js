@@ -57,7 +57,7 @@ async function performSearch() {
 function renderResults(results) {
   const container = document.getElementById('results');
   container.innerHTML = '';
-
+  
   if (!results.length) {
     container.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
     return;
@@ -65,26 +65,32 @@ function renderResults(results) {
 
   results.forEach(r => {
     const authors = Array.isArray(r.authors) ? r.authors.join(', ') : r.authors || 'Unbekannt';
-    const keywords = r.keywords?.join(', ') || 'Keine';
     const journal = r.journal || 'Nicht verfügbar';
     const date = r.publicationDate || 'Unbekannt';
     const access = r.isOpenAccess ? 'Open Access' : 'Kein Open Access';
     const doi = r.doi ? `<a href="https://doi.org/${r.doi}" target="_blank">DOI</a>` : 'DOI nicht verfügbar';
-    const abstract = r.abstract ? `<p class="abstract"><em>${r.abstract}</em></p>` : '<p><em>Kein Abstract verfügbar</em></p>';
+    const isSD = r.source === 'sciencedirect';
 
-    // PDF-Link nur anzeigen, wenn Open Access
-    const pdf = (r.isOpenAccess && r.pdfLink) ? `<a href="${r.pdfLink}" target="_blank">PDF</a>` : '';
+    // Nur wenn Open Access, PDF-Link anzeigen
+    const pdf = (r.pdfLink && r.isOpenAccess) ? `<a href="${r.pdfLink}" target="_blank">PDF</a>` : '';
     const html = r.htmlLink ? `<a href="${r.htmlLink}" target="_blank">HTML</a>` : '';
 
+    // Abstract & Keywords nur wenn nicht ScienceDirect
+    const abstract = (!isSD && r.abstract) ? `<p class="abstract"><em>${r.abstract}</em></p>` : '';
+    const keywords = (!isSD && r.keywords?.length) ? `<p><strong>Schlagwörter:</strong> ${r.keywords.join(', ')}</p>` : '';
+
+    // Optional: Farbliche Klasse je nach Quelle
+    const sourceClass = `card-${r.source || 'default'}`;
+
     const div = document.createElement('div');
-    div.className = 'result-card';
+    div.className = `result-card ${sourceClass}`;
     div.innerHTML = `
       <h3>${r.title || 'Kein Titel'}</h3>
       ${abstract}
       <p><strong>Autoren:</strong> ${authors}</p>
       <p><strong>Journal:</strong> ${journal}</p>
       <p><strong>Veröffentlichung:</strong> ${date}</p>
-      <p><strong>Schlagwörter:</strong> ${keywords}</p>
+      ${keywords}
       <p><strong>Zugang:</strong> ${access}</p>
       <p><strong>DOI:</strong> ${doi}</p>
       <p>${pdf} ${html}</p>
@@ -92,4 +98,5 @@ function renderResults(results) {
     container.appendChild(div);
   });
 }
+
 
