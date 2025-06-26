@@ -23,4 +23,20 @@ router.get('/search', async (req, res) => {
   }
 });
 
+// POST /api/ais/details
+router.post('/details', async (req, res) => {
+  const { detailLink } = req.body;
+
+  if (!detailLink) {
+    return res.status(400).json({ error: 'detailLink fehlt in der Anfrage.' });
+  }
+
+  try {
+    const data = await scrapeAISDetails(detailLink);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Detail-Scraping fehlgeschlagen', details: err.message });
+  }
+});
+
 module.exports = router;
