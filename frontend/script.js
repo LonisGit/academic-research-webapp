@@ -68,33 +68,33 @@ function renderResults(results) {
 
   results.forEach((r, index) => {
     const authors = Array.isArray(r.authors) ? r.authors.join(', ') : r.authors || 'Unbekannt';
-    const keywords = r.keywords?.join(', ') || 'Keine';
     const journal = r.journal || 'Nicht verfügbar';
     const date = r.publicationDate || 'Unbekannt';
     const access = r.isOpenAccess ? 'Open Access' : 'Kein Open Access';
-    const doi = r.doi ? `<a href="https://doi.org/${r.doi}" target="_blank">DOI</a>` : 'DOI nicht verfügbar';
-    const abstract = r.abstract ? `<p class="abstract"><em>${r.abstract}</em></p>` : '<p><em>Kein Abstract verfügbar</em></p>';
-    const pdf = (r.isOpenAccess && r.pdfLink) ? `<a href="${r.pdfLink}" target="_blank">PDF</a>` : '';
-    const html = r.htmlLink ? `<a href="${r.htmlLink}" target="_blank">HTML</a>` : '';
+    const abstract = r.abstract
+      ? `<p class="abstract"><em>${r.abstract}</em></p>`
+      : '<p class="abstract"><em>Kein Abstract verfügbar</em></p>';
+    const pdf = r.pdfLink
+      ? `<p><a href="${r.pdfLink}" target="_blank">📄 PDF herunterladen</a></p>`
+      : '';
 
     const div = document.createElement('div');
     div.className = 'result-card';
     div.innerHTML = `
-      <h3>${r.title || 'Kein Titel'}</h3>
-      <div class="abstract-section" data-index="${index}">
-        ${abstract}
-      </div>
-      <p><strong>Autoren:</strong> ${authors}</p>
-      <p><strong>Journal:</strong> ${journal}</p>
-      <p><strong>Veröffentlichung:</strong> ${date}</p>
-      <p><strong>Schlagwörter:</strong> ${keywords}</p>
-      <p><strong>Zugang:</strong> ${access}</p>
-      <p><strong>DOI:</strong> ${doi}</p>
-      <p>${pdf} ${html}</p>
-      ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
-    `;
+    <h3>${r.title || 'Kein Titel'}</h3>
+    <div class="abstract-section" data-index="${index}">
+      ${abstract}
+      ${pdf}
+    </div>
+    <p><strong>Autoren:</strong> ${authors}</p>
+    <p><strong>Journal:</strong> ${journal}</p>
+    <p><strong>Veröffentlichung:</strong> ${date}</p>
+    <p><strong>Zugang:</strong> ${access}</p>
+    ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
+  `;
     container.appendChild(div);
   });
+
 
   // Event Listener für Detail-Buttons
   document.querySelectorAll('.details-btn').forEach(btn => {
@@ -114,13 +114,12 @@ function renderResults(results) {
 
         const data = await res.json();
 
-        // Update Abstract, DOI, Keywords, PDF-Link
         results[index].abstract = data.abstract;
-        results[index].doi = data.doi !== 'nicht verfügbar' ? data.doi : null;
-        results[index].keywords = data.keywords?.split(',').map(k => k.trim()) || [];
-        results[index].pdfLink = data.pdfLink !== 'nicht verfügbar' ? data.pdfLink : null;
+        results[index].pdfLink = data.pdfLink;
+        renderResults(results);
 
-        renderResults(results); // Seite neu rendern
+
+        renderResults(results);
 
       } catch (err) {
         console.error('Fehler beim Laden der Details:', err);
