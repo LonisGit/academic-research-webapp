@@ -10,20 +10,17 @@ async function scrapeAISDetails(detailLink) {
     await page.goto(detailLink, { waitUntil: 'domcontentloaded' });
 
     const data = await page.evaluate(() => {
-      const getMeta = name =>
-        document.querySelector(`meta[name="${name}"]`)?.content?.trim() || 'nicht verfügbar';
+      const getMeta = name => document.querySelector(`meta[name="${name}"]`)?.content?.trim() || null;
 
       return {
         abstract: getMeta('description'),
-        pdfLink: getMeta('bepress_citation_pdf_url'),
-        doi: 'nicht verfügbar',
-        keywords: 'nicht verfügbar'
+        pdfLink: getMeta('bepress_citation_pdf_url')
       };
     });
 
     return data;
   } catch (err) {
-    console.error('Fehler beim Laden der Detailseite:', err.message);
+    console.error('Fehler bei Detailseite:', err.message);
     throw err;
   } finally {
     await browser.close();
