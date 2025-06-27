@@ -33,6 +33,22 @@ async function performSearch() {
   renderResults(accumulatedResults);
 }
 
+async function loadNextPage(source) {
+  const page = currentPage[source];
+  const res = await fetch(`/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`);
+  const data = await res.json();
+
+  if (data.results) {
+    const mapped = data.results.map(r => ({
+      ...r,
+      source
+    }));
+    accumulatedResults.push(...mapped);
+    currentPage[source]++;
+    renderResults(accumulatedResults);
+  }
+}
+
 
 function renderResults(results) {
   const container = document.getElementById('results');
