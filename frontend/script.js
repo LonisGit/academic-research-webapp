@@ -1,3 +1,4 @@
+
 let currentSource = 'all';
 
 document.querySelectorAll('.tab-selector button').forEach(btn => {
@@ -16,7 +17,6 @@ async function performSearch() {
   document.getElementById('results').innerHTML = '';
 
   const resultContainer = document.getElementById('results');
-  resultContainer.innerHTML = '<p>Suche läuft...</p>';
 
   let sources = ['sciencedirect', 'springer', 'ais'];
   if (currentSource !== 'all') sources = [currentSource];
@@ -84,38 +84,42 @@ function renderResults(results) {
     const journal = r.journal || 'Nicht verfügbar';
     const date = r.publicationDate || 'Unbekannt';
     const access = r.isOpenAccess ? 'Open Access' : 'Kein Open Access';
-    const abstract = r.abstract
+
+    const isSD = r.source === 'sciencedirect';
+    const abstract = (!isSD && r.abstract)
       ? `<p class="abstract"><em>${r.abstract}</em></p>`
-      : '<p class="abstract"><em>Kein Abstract verfügbar</em></p>';
+      : (!isSD ? '<p class="abstract"><em>Kein Abstract verfügbar</em></p>' : '');
+    const keywords = (!isSD && r.keywords?.length)
+      ? `<p><strong>Schlagwörter:</strong> ${r.keywords.join(', ')}</p>`
+      : '';
     const pdf = r.pdfLink
       ? `<p><a href="${r.pdfLink}" target="_blank">📄 PDF herunterladen</a></p>`
       : '';
+    const websiteLink = r.htmlLink
+      ? `<p><a href="${r.htmlLink}" target="_blank">🌐 Zur Website</a></p>`
+      : (r.doi ? `<p><a href="https://doi.org/${r.doi}" target="_blank">🌐 DOI-Link öffnen</a></p>` : '');
 
-    // Abstract & Keywords nur wenn nicht ScienceDirect
-    const abstract = (!isSD && r.abstract) ? `<p class="abstract"><em>${r.abstract}</em></p>` : '';
-    const keywords = (!isSD && r.keywords?.length) ? `<p><strong>Schlagwörter:</strong> ${r.keywords.join(', ')}</p>` : '';
-
-    // Optional: Farbliche Klasse je nach Quelle
     const sourceClass = `card-${r.source || 'default'}`;
 
     const div = document.createElement('div');
     div.className = `result-card ${sourceClass}`;
     div.innerHTML = `
-    <h3>${r.title || 'Kein Titel'}</h3>
-    <div class="abstract-section" data-index="${index}">
-      ${abstract}
-      ${pdf}
-    </div>
-    <p><strong>Autoren:</strong> ${authors}</p>
-    <p><strong>Journal:</strong> ${journal}</p>
-    <p><strong>Veröffentlichung:</strong> ${date}</p>
-    <p><strong>Zugang:</strong> ${access}</p>
-    ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
-  `;
+      <h3>${r.title || 'Kein Titel'}</h3>
+      <div class="abstract-section" data-index="${index}">
+        ${abstract}
+        ${pdf}
+        ${websiteLink}
+      </div>
+      <p><strong>Autoren:</strong> ${authors}</p>
+      <p><strong>Journal:</strong> ${journal}</p>
+      <p><strong>Veröffentlichung:</strong> ${date}</p>
+      <p><strong>Zugang:</strong> ${access}</p>
+      ${keywords}
+      ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
+    `;
 
     container.appendChild(div);
   });
-
 
   // Event Listener für Detail-Buttons
   document.querySelectorAll('.details-btn').forEach(btn => {
@@ -148,3 +152,5 @@ function renderResults(results) {
     });
   });
 }
+
+
