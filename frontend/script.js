@@ -1,4 +1,7 @@
 let currentSource = 'all';
+let currentQuery = '';
+let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
+let accumulatedResults = [];
 
 document.querySelectorAll('.tab-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -12,50 +15,24 @@ async function performSearch() {
   const query = document.getElementById('search-query').value.trim();
   if (!query) return;
 
+  currentQuery = query;
+  currentPage = {}; // zurücksetzen
+  accumulatedResults = [];
+
   const resultContainer = document.getElementById('results');
   resultContainer.innerHTML = '<p>Suche läuft...</p>';
 
   let sources = ['sciencedirect', 'springer', 'ais'];
   if (currentSource !== 'all') sources = [currentSource];
 
-  const allResults = [];
-
   for (let source of sources) {
-    try {
-      const res = await fetch(`/api/${source}/search?q=${encodeURIComponent(query)}`);
-      const data = await res.json();
-
-      if (data.results) {
-        const mapped = data.results.map(r => {
-          if (source === 'ais') {
-            return {
-              title: r.title || 'Kein Titel',
-              authors: r.authors || 'Unbekannt',
-              journal: r.publication || 'Nicht verfügbar',
-              publicationDate: r.year || 'Unbekannt',
-              abstract: 'Kein Abstract verfügbar',
-              doi: null,
-              pdfLink: null,
-              htmlLink: null,
-              keywords: [],
-              isOpenAccess: true,
-              detailLink: r.detailLink || null,
-              source: 'ais'
-            };
-          } else {
-            return { ...r, source };
-          }
-        });
-        allResults.push(...mapped);
-      }
-
-    } catch (err) {
-      console.error(`Fehler bei ${source}:`, err);
-    }
+    currentPage[source] = 1;
+    await loadNextPage(source);
   }
 
-  renderResults(allResults);
+  renderResults(accumulatedResults);
 }
+
 
 function renderResults(results) {
   const container = document.getElementById('results');
