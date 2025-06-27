@@ -60,20 +60,24 @@ app.use('/api/springer', springerRoutes);
 
 /**
  * @swagger
- * /api/ais/search:
- *   get:
- *     summary: Suche in AIS eLibrary
- *     parameters:
- *       - in: query
- *         name: query
- *         required: true
- *         schema:
- *           type: string
- *         description: Der Suchbegriff
+ * /api/ais/details:
+ *   post:
+ *     summary: Lade Details zu einem AIS-Artikel
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               detailLink:
+ *                 type: string
+ *                 description: Link zur Detailseite (z. B. https://aisel.aisnet.org/iceb2016/67/)
  *     responses:
  *       200:
- *         description: Erfolgreiche Antwort mit Suchergebnis
+ *         description: Erfolgreiche Antwort mit Abstract, PDF-Link, etc.
  */
+
 app.use('/api/ais', scraperRoute);
 
 // Swagger-Dokumentation
