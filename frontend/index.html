@@ -11,11 +11,12 @@
   </header>
 
   <div class="tab-selector">
-    <button class="active" data-source="all">Alle</button>
-    <button data-source="sciencedirect">ScienceDirect</button>
-    <button data-source="springer">Springer</button>
-    <button data-source="ais">AIS E-Libary</button>
-  </div>
+  <button class="active" data-source="all">Alle</button>
+  <button class="tab-sd" data-source="sciencedirect">ScienceDirect</button>
+  <button class="tab-springer" data-source="springer">Springer</button>
+  <button class="tab-ais" data-source="ais">AIS E-Libary</button>
+</div>
+
 
   <div class="search-box">
     <input type="text" id="search-query" placeholder="Suche nach wissenschaftlichen Artikeln..." />
@@ -23,6 +24,8 @@
   </div>
 
   <div class="results" id="results"></div>
+  <div id="loader" class="loader hidden"></div>
+
 
   <script src="script.js"></script>
 </body>

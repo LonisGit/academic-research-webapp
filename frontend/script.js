@@ -12,6 +12,9 @@ async function performSearch() {
   const query = document.getElementById('search-query').value.trim();
   if (!query) return;
 
+  document.getElementById('loader').classList.remove('hidden');
+  document.getElementById('results').innerHTML = '';
+
   const resultContainer = document.getElementById('results');
   resultContainer.innerHTML = '<p>Suche läuft...</p>';
 
@@ -38,6 +41,7 @@ async function performSearch() {
               pdfLink: null,
               htmlLink: null,
               keywords: [],
+
               isOpenAccess: true,
               detailLink: r.detailLink || null,
               source: 'ais'
@@ -54,7 +58,16 @@ async function performSearch() {
     }
   }
 
+  // Ergebnisse zufällig (Fisher-Yates Shuffle)
+  for (let i = allResults.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allResults[i], allResults[j]] = [allResults[j], allResults[i]];
+  }
+
+
   renderResults(allResults);
+  document.getElementById('loader').classList.add('hidden');
+
 }
 
 function renderResults(results) {
@@ -78,8 +91,15 @@ function renderResults(results) {
       ? `<p><a href="${r.pdfLink}" target="_blank">📄 PDF herunterladen</a></p>`
       : '';
 
+    // Abstract & Keywords nur wenn nicht ScienceDirect
+    const abstract = (!isSD && r.abstract) ? `<p class="abstract"><em>${r.abstract}</em></p>` : '';
+    const keywords = (!isSD && r.keywords?.length) ? `<p><strong>Schlagwörter:</strong> ${r.keywords.join(', ')}</p>` : '';
+
+    // Optional: Farbliche Klasse je nach Quelle
+    const sourceClass = `card-${r.source || 'default'}`;
+
     const div = document.createElement('div');
-    div.className = 'result-card';
+    div.className = `result-card ${sourceClass}`;
     div.innerHTML = `
     <h3>${r.title || 'Kein Titel'}</h3>
     <div class="abstract-section" data-index="${index}">
@@ -92,6 +112,7 @@ function renderResults(results) {
     <p><strong>Zugang:</strong> ${access}</p>
     ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
   `;
+
     container.appendChild(div);
   });
 
