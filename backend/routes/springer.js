@@ -5,55 +5,44 @@ const router = express.Router();
 //For testing: http://localhost:5000/api/springer/search?q=virtual+reality
 router.get('/search', async (req, res) => {
   const query = req.query.q;
-  const apiKey = process.env.SPRINGER_META_KEY;
+  const page = parseInt(req.query.page) || 1;
+  const pageSize = 20;
+  const startIndex = (page - 1) * pageSize;
 
-  if (!query) {
-    return res.status(400).json({ error: 'Query parameter "q" is required' });
-  }
-
-  const url = `https://api.springernature.com/meta/v2/json?q=${encodeURIComponent(query)}&api_key=${apiKey}`;
+  if (!query) return res.status(400).json({ error: 'Query fehlt' });
 
   try {
-    const response = await axios.get(url);
-
-    const articles = response.data.records.map((record) => {
-      const pdfLink = record.url?.find(u => u.format === 'pdf')?.value || null;
-      const htmlLink = record.url?.find(u => u.format === 'html')?.value || null;
-
-      return {
-        title: record.title,
-        authors: record.creators?.map(c => c.creator),
-        abstract: record.abstract,
-        publicationDate: record.publicationDate,
-        doi: record.doi,
-        journal: record.publicationName,
-        isOpenAccess: record.openaccess === 'true',
-        pdfLink,
-        htmlLink,
-        subjects: record.subjects,
-        keywords: record.keyword,
-      };
+    const response = await axios.get('https://api.springernature.com/meta/v2/json', {
+      params: {
+        q: query,
+        api_key: process.env.SPRINGER_API_KEY,
+        p: page,
+        pageSize
+      }
     });
+
+    const results = (response.data.records || []).map(item => ({
+      title: item.title,
+      authors: item.creators?.map(c => c.creator) || [],
+      journal: item.publicationName || '',
+      publicationDate: item.publicationDate || '',
+      abstract: item.abstract || '',
+      doi: item.doi || '',
+      pdfLink: item.url?.find(u => u.format === 'pdf')?.value || '',
+      htmlLink: item.url?.find(u => u.format === 'html')?.value || '',
+      isOpenAccess: item.openaccess === 'true'
+    }));
 
     res.json({
-      source: 'Springer',
       query,
-      count: articles.length,
-      results: articles,
+      page,
+      total: parseInt(response.data.result[0]?.total || 0),
+      results
     });
 
-
-  } catch (error) {
-    console.error('Springer API Fehler:', error.message);
-
-    if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Daten:', error.response.data);
-    }
-
-    res.status(500).json({ error: 'Springer API call failed' });
+  } catch (err) {
+    res.status(500).json({ error: 'Fehler bei Springer-Abfrage', details: err.message });
   }
-
 });
 
 module.exports = router;
