@@ -88,12 +88,27 @@ function renderResults(results) {
     container.appendChild(div);
   });
 
+  if (!document.getElementById('load-more')) {
+    const loadMore = document.createElement('button');
+    loadMore.id = 'load-more';
+    loadMore.textContent = 'Mehr laden';
+    loadMore.className = 'load-more-btn';
+    loadMore.addEventListener('click', () => {
+      let sources = ['sciencedirect', 'springer', 'ais'];
+      if (currentSource !== 'all') sources = [currentSource];
+      sources.forEach(src => loadNextPage(src));
+    });
+    container.appendChild(loadMore);
+  }
+
+
 
   // Event Listener für Detail-Buttons
   document.querySelectorAll('.details-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       const detailLink = btn.getAttribute('data-link');
       const index = parseInt(btn.getAttribute('data-index'));
+      const card = btn.closest('.result-card');
 
       btn.textContent = 'Lade Details...';
       btn.disabled = true;
@@ -106,17 +121,24 @@ function renderResults(results) {
         });
 
         const data = await res.json();
-
         console.log('Details geladen:', data);
 
         results[index].abstract = data.abstract;
         results[index].pdfLink = data.pdfLink;
-        renderResults(results);
+
+        const abstractSection = card.querySelector('.abstract-section');
+        abstractSection.innerHTML = `
+      <p class="abstract"><em>${data.abstract || 'Kein Abstract verfügbar'}</em></p>
+      ${data.pdfLink ? `<p><a href="${data.pdfLink}" target="_blank">📄 PDF herunterladen</a></p>` : ''}
+    `;
 
       } catch (err) {
         console.error('Fehler beim Laden der Details:', err);
         btn.textContent = 'Fehler';
       }
     });
+
   });
+
+
 }

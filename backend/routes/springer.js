@@ -2,22 +2,21 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-//For testing: http://localhost:5000/api/springer/search?q=virtual+reality
 router.get('/search', async (req, res) => {
   const query = req.query.q;
   const page = parseInt(req.query.page) || 1;
-  const pageSize = 20;
-  const startIndex = (page - 1) * pageSize;
-
+  const pageSize = 25; // max für Basic
+  const start = (page - 1) * pageSize + 1;
+  
   if (!query) return res.status(400).json({ error: 'Query fehlt' });
 
   try {
     const response = await axios.get('https://api.springernature.com/meta/v2/json', {
       params: {
         q: query,
-        api_key: process.env.SPRINGER_API_KEY,
-        p: page,
-        pageSize
+        api_key: process.env.SPRINGER_META_KEY,
+        s: start,
+        p: pageSize
       }
     });
 
@@ -36,7 +35,8 @@ router.get('/search', async (req, res) => {
     res.json({
       query,
       page,
-      total: parseInt(response.data.result[0]?.total || 0),
+      pageSize,
+      total: parseInt(response.data.result?.[0]?.total || 0),
       results
     });
 
