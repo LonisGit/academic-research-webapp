@@ -35,21 +35,25 @@ async function performSearch() {
 }
 
 async function loadNextPage(source) {
-  const page = currentPage[source];
+  const page = currentPage[source] || 1;  // Default auf 1, falls undefined
   console.log('Page:', page, 'Source:', source);
-  const res = await fetch(`/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`);
+
+  let url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
+
+  if (source === 'ais') {
+    const start = (page - 1) * 25;
+    url = `/api/ais/search?q=${encodeURIComponent(currentQuery)}&start=${start}`;
+  }
+
+  const res = await fetch(url);
   const data = await res.json();
 
-  if (data.results) {
+  if (data.results && data.results.length > 0) {
     const mapped = data.results.map(r => ({
       ...r,
       source
     }));
 
-    currentPage[source]++;
-
-    // Für die erste Seite setzen wir accumulatedResults komplett neu,
-    // für Folgeseiten hängen wir nur an
     if (page === 1) {
       accumulatedResults = [...mapped];
       renderResults(accumulatedResults);
@@ -57,8 +61,14 @@ async function loadNextPage(source) {
       accumulatedResults.push(...mapped);
       renderNewResults(mapped);
     }
+
+    currentPage[source] = page + 1;
+
+  } else {
+    console.log(`Keine weiteren Ergebnisse für ${source}`);
   }
 }
+
 
 // Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
 function renderResults(results) {
