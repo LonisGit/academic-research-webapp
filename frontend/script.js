@@ -103,9 +103,10 @@ function renderNewResults(newResults) {
 // Hilfsfunktion zum Erzeugen einer Ergebnis-Karte
 function createResultCard(r, index) {
   const authors = Array.isArray(r.authors) ? r.authors.join(', ') : r.authors || 'Unbekannt';
-  const journal = r.journal || 'Nicht verfügbar';
-  const date = r.publicationDate || 'Unbekannt';
-  const access = r.isOpenAccess ? 'Open Access' : 'Kein Open Access';
+  // Für AIS fallback auf publication und year:
+  const journal = r.journal || r.publication || 'Nicht verfügbar';
+  const date = r.publicationDate || r.year || 'Unbekannt';
+  const access = r.isOpenAccess ? 'Open Access' : (r.source === 'ais' ? 'Nicht geprüft' : 'Kein Open Access');
 
   const isSD = r.source === 'sciencedirect';
   const abstract = (!isSD && r.abstract)
@@ -142,6 +143,7 @@ function createResultCard(r, index) {
 
   return div;
 }
+
 
 // Fügt den "Mehr laden" Button ans Ende
 function addLoadMoreButton(container) {
