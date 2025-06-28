@@ -2,11 +2,14 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-// Beispiel: http://localhost:5000/api/sciencedirect/search?q=virtual+reality
+// Beispiel: http://localhost:5000/api/sciencedirect/search?q=ai&page=2
 router.get('/search', async (req, res) => {
   const query = req.query.q;
   const includeDetails = req.query.details === 'true';
   const apiKey = process.env.ELSEVIER_API_KEY;
+  const page = parseInt(req.query.page) || 1;
+  const count = 20; // Anzahl pro Seite (max 100 bei Elsevier)
+  const start = (page - 1) * count;
 
   if (!query) {
     return res.status(400).json({ error: 'Query-Parameter "q" fehlt.' });
@@ -25,12 +28,15 @@ router.get('/search', async (req, res) => {
         'Accept': 'application/json',
       },
       params: {
-        query: query,
-        view: 'STANDARD', // vermeidet geschützte Felder
+        query,
+        start,
+        count,
+        view: 'STANDARD'
       },
     });
 
     const entries = searchResponse.data['search-results']?.entry || [];
+    const totalResults = parseInt(searchResponse.data['search-results']?.['opensearch:totalResults'] || '0');
 
     const formattedResults = await Promise.all(entries.map(async (entry) => {
       const authorsArray = entry.authors?.author
@@ -47,7 +53,6 @@ router.get('/search', async (req, res) => {
 
       const isOpenAccess = entry['openaccess'] === true || entry['openaccess'] === 'true' || entry['openaccess'] === 1;
 
-      // Nur Details laden, wenn erlaubt & Open Access
       if (includeDetails && isOpenAccess) {
         try {
           const identifier = entry.pii || (entry['dc:identifier']?.replace(/^DOI:/, '') ?? null);
@@ -87,7 +92,6 @@ router.get('/search', async (req, res) => {
         isOpenAccess,
         pdfLink,
         htmlLink,
-        subjects: [], // nicht verfügbar in Search-API
         keywords,
       };
     }));
@@ -95,7 +99,9 @@ router.get('/search', async (req, res) => {
     res.json({
       source: 'ScienceDirect',
       query,
-      count: formattedResults.length,
+      page,
+      pageSize: count,
+      total: totalResults,
       results: formattedResults,
     });
 
