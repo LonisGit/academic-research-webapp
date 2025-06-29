@@ -6,18 +6,18 @@ const scrapeAISDetails = require('../scraper/scrapeAISDetails');
 // GET /api/ais/search?q=virtual+reality&page=2
 router.get('/search', async (req, res) => {
   const query = req.query.q;
-  const page = parseInt(req.query.page) || 1;
+  const start = parseInt(req.query.start) || 0;
 
   if (!query) {
     return res.status(400).json({ error: 'Query fehlt.' });
   }
 
   try {
-    const results = await scrapeAIS(query, page);
+    const results = await scrapeAIS(query, start);
     res.json({
       source: 'AIS',
       query,
-      page,
+      start,
       count: results.length,
       results,
     });

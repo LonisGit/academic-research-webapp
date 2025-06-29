@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
-async function scrapeAIS(query, page = 1) {
+async function scrapeAIS(query, start = 0) {
   const browser = await puppeteer.launch({
     headless: true, // kannst du beim Debuggen auf false setzen
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -20,9 +20,7 @@ async function scrapeAIS(query, page = 1) {
     Referer: 'https://aisel.aisnet.org/',
   });
 
-  const pageSize = 25;
-  const offset = (page - 1) * pageSize;
-  const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=${offset}`;
+const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=${start}`;
 
   try {
     await pageInstance.goto(searchUrl, { waitUntil: 'networkidle2', timeout: 30000 });
@@ -51,7 +49,7 @@ async function scrapeAIS(query, page = 1) {
       return items;
     });
 
-    console.log(`Gefundene Artikel auf Seite ${page}:`, articles.length);
+    console.log(`Gefundene Artikel auf Seite ${start}:`, articles.length);
     return articles;
   } catch (error) {
     console.error('Scraping fehlgeschlagen:', error.message);

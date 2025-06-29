@@ -35,39 +35,45 @@ async function performSearch() {
 }
 
 async function loadNextPage(source) {
-  const page = currentPage[source] || 1;
-  console.log('Page:', page, 'Source:', source);
-
-  let url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
+  let page = currentPage[source] || 1;
+  let url = '';
 
   if (source === 'ais') {
-    const start = (page - 1) * 25;
+    const start = (page - 1) * 25; // AIS verwendet Offset
     url = `/api/ais/search?q=${encodeURIComponent(currentQuery)}&start=${start}`;
+  } else {
+    url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
   }
 
-  const res = await fetch(url);
-  const data = await res.json();
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-  if (data.results && data.results.length > 0) {
-    const mapped = data.results.map(r => ({
-      ...r,
-      source
-    }));
+    if (data.results && data.results.length > 0) {
+      const mapped = data.results.map(r => ({
+        ...r,
+        source
+      }));
 
-    if (page === 1) {
-      accumulatedResults = [...mapped];
-      renderResults(accumulatedResults);
+      if (page === 1) {
+        accumulatedResults = [...mapped];
+        renderResults(accumulatedResults);
+      } else {
+        accumulatedResults.push(...mapped);
+        renderNewResults(mapped);
+      }
+
+      currentPage[source] = page + 1;
+
     } else {
-      accumulatedResults.push(...mapped);
-      renderNewResults(mapped);
+      console.log(`Keine weiteren Ergebnisse für ${source}`);
     }
 
-    currentPage[source] = page + 1;
-
-  } else {
-    console.log(`Keine weiteren Ergebnisse für ${source}`);
+  } catch (err) {
+    console.error(`Fehler beim Laden von Seite ${page} für ${source}:`, err);
   }
 }
+
 
 
 // Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
