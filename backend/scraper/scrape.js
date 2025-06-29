@@ -49,6 +49,8 @@ const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(qu
       return items;
     });
 
+    console.log('SCRAPE URL:', searchUrl);
+
     console.log(`Gefundene Artikel auf Seite ${start}:`, articles.length);
     return articles;
   } catch (error) {
