@@ -35,7 +35,7 @@ async function performSearch() {
 }
 
 async function loadNextPage(source) {
-  const page = currentPage[source] || 1;  // Default auf 1, falls undefined
+  const page = currentPage[source] || 1;
   console.log('Page:', page, 'Source:', source);
 
   let url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
