@@ -4,7 +4,7 @@ puppeteer.use(StealthPlugin());
 
 async function scrapeAIS(query, page = 1) {
   const browser = await puppeteer.launch({
-    headless: true, // kannst du beim Debuggen auf false setzen
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     defaultViewport: null,
   });
