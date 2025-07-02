@@ -10,6 +10,7 @@ let resultsBySource = {
 };
 
 
+
 document.querySelectorAll('.tab-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-selector button').forEach(b => b.classList.remove('active'));
@@ -17,6 +18,8 @@ document.querySelectorAll('.tab-selector button').forEach(btn => {
     currentSource = btn.getAttribute('data-source');
   });
 });
+
+
 
 async function performSearch() {
   const query = document.getElementById('search-query').value.trim();

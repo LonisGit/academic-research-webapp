@@ -1,27 +1,46 @@
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wissenschaftliche Suche</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <h1>Wissenschaftliche Publikationen suchen</h1>
   </header>
 
   <div class="tab-selector">
-  <button class="active" data-source="all">Alle</button>
-  <button class="tab-sd" data-source="sciencedirect">ScienceDirect</button>
-  <button class="tab-springer" data-source="springer">Springer</button>
-  <button class="tab-ais" data-source="ais">AIS E-Libary</button>
+    <button class="active" data-source="all">Alle</button>
+    <button class="tab-sd" data-source="sciencedirect">ScienceDirect</button>
+    <button class="tab-springer" data-source="springer">Springer</button>
+    <button class="tab-ais" data-source="ais">AIS E-Libary</button>
+  </div>
+
+  
+
+
+<div class="sort-filter">
+  <label for="sort-select">Sortieren nach:</label>
+  <select id="sort-select" aria-label="Sortieren nach">
+    <option value="year">Veröffentlichungsjahr</option>
+    <option value="title">Titel (A–Z)</option>
+    <option value="authors">Autoren (A–Z)</option>
+  </select>
+
+  <label for="openaccess-checkbox" class="openaccess-label">
+    <input type="checkbox" id="openaccess-checkbox" />
+    Nur Open Access
+  </label>
 </div>
 
+<div class="search-box">
+  <input type="text" id="search-query" placeholder="Suche nach wissenschaftlichen Artikeln..." />
+  <button onclick="performSearch()">Suchen</button>
+</div>
 
-  <div class="search-box">
-    <input type="text" id="search-query" placeholder="Suche nach wissenschaftlichen Artikeln..." />
-    <button onclick="performSearch()">Suchen</button>
-  </div>
 
   <div class="results" id="results"></div>
   <div id="loader" class="loader hidden"></div>
@@ -29,4 +48,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
