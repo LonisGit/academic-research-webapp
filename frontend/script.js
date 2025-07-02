@@ -3,6 +3,13 @@ let currentQuery = '';
 let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
 let accumulatedResults = [];
 
+let resultsBySource = {
+  sciencedirect: [],
+  springer: [],
+  ais: []
+};
+
+
 document.querySelectorAll('.tab-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-selector button').forEach(b => b.classList.remove('active'));
@@ -49,17 +56,20 @@ async function loadNextPage(source) {
   const data = await res.json();
 
   if (data.results && data.results.length > 0) {
-    const mapped = data.results.map(r => ({
-      ...r,
-      source
-    }));
+    const mapped = data.results.map(r => ({ ...r, source }));
+    resultsBySource[source].push(...mapped);
 
-    if (page === 1) {
-      accumulatedResults = [...mapped];
+    if (currentSource === 'all') {
+      mixResults();
       renderResults(accumulatedResults);
     } else {
-      accumulatedResults.push(...mapped);
-      renderNewResults(mapped);
+      if (currentPage[source] === 1) {
+        accumulatedResults = [...mapped];
+        renderResults(accumulatedResults);
+      } else {
+        accumulatedResults.push(...mapped);
+        renderNewResults(mapped);
+      }
     }
 
     currentPage[source] = page + 1;
@@ -68,6 +78,24 @@ async function loadNextPage(source) {
     console.log(`Keine weiteren Ergebnisse für ${source}`);
   }
 }
+
+function mixResults() {
+  const maxLength = Math.max(
+    resultsBySource.sciencedirect.length,
+    resultsBySource.springer.length,
+    resultsBySource.ais.length
+  );
+
+  accumulatedResults = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    if (resultsBySource.sciencedirect[i]) accumulatedResults.push(resultsBySource.sciencedirect[i]);
+    if (resultsBySource.springer[i]) accumulatedResults.push(resultsBySource.springer[i]);
+    if (resultsBySource.ais[i]) accumulatedResults.push(resultsBySource.ais[i]);
+  }
+
+}
+
 
 
 // Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
