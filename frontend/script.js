@@ -241,3 +241,66 @@ async function detailsBtnHandler(event) {
     btn.textContent = 'Fehler';
   }
 }
+
+document.getElementById('export-csv').addEventListener('click', () => {
+  if (accumulatedResults.length === 0) {
+    alert('Keine Ergebnisse zum Exportieren!');
+    return;
+  }
+
+  // CSV Header (Spaltennamen)
+  const headers = ['Titel', 'Autoren', 'Journal', 'Veröffentlichung', 'Zugang', 'Quelle', 'Link'];
+
+  // CSV-Daten aufbereiten
+  const rows = accumulatedResults.map(r => {
+    // Autoren als String
+    const authors = Array.isArray(r.authors) ? r.authors.join(', ') : (r.authors || '');
+
+    // Journal/Publication
+    const journal = r.journal || r.publication || '';
+
+    // Datum
+    const date = r.publicationDate || r.year || '';
+
+    // Zugang (Open Access / etc)
+    const access = r.isOpenAccess ? 'Open Access' : (r.source === 'ais' ? 'Nicht geprüft' : 'Kein Open Access');
+
+    // Link (Website oder DOI)
+    let link = '';
+    if (r.htmlLink) link = r.htmlLink;
+    else if (r.doi) link = `https://doi.org/${r.doi}`;
+
+    // CSV-Zeile als Array, Felder werden später korrekt escaped
+    return [r.title || '', authors, journal, date, access, r.source || '', link];
+  });
+
+  // Funktion um CSV-Zeilen zu erzeugen mit richtigem Escape für Kommas, Anführungszeichen etc.
+  function toCSVLine(arr) {
+    return arr.map(field => {
+      if (field == null) return '';
+      const str = field.toString();
+      if (str.includes('"') || str.includes(',') || str.includes('\n')) {
+        // Anführungszeichen im Feld mit doppelten Anführungszeichen escapen und Feld in ""
+        return `"${str.replace(/"/g, '""')}"`;
+      }
+      return str;
+    }).join(',');
+  }
+
+  // CSV-String zusammensetzen
+  const csvContent = [headers, ...rows].map(toCSVLine).join('\n');
+
+  // CSV als Blob erzeugen
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+  // Download-Link erzeugen
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `search_results_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
