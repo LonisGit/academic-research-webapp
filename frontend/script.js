@@ -1,7 +1,6 @@
 let currentSource = 'all';
 let currentQuery = '';
 let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
-let accumulatedResults = [];
 
 let resultsBySource = {
   sciencedirect: [],
@@ -18,6 +17,98 @@ document.querySelectorAll('.tab-selector button').forEach(btn => {
     currentSource = btn.getAttribute('data-source');
   });
 });
+
+let accumulatedResults = []; // wird bei performSearch befüllt
+let currentSort = "relevance"; // Standard: Relevanz (also Originalreihenfolge)
+let filterOpenAccess = false; // Filter deaktiviert
+
+document.getElementById("sort-select").addEventListener("change", (e) => {
+  const selected = e.target.value;
+  currentSort = selected;
+  updateResultsView();
+});
+
+document.getElementById("openaccess-checkbox").addEventListener("change", (e) => {
+  filterOpenAccess = e.target.checked;
+  updateResultsView();
+});
+
+function updateResultsView() {
+  let resultsToDisplay = [...accumulatedResults];
+
+  // Filter anwenden
+  if (filterOpenAccess) {
+    resultsToDisplay = resultsToDisplay.filter(item => item.isOpenAccess);
+  }
+
+  // Sortierung anwenden (wenn nicht "relevance")
+  if (currentSort === "year") {
+  resultsToDisplay.sort((a, b) => (b.year || 0) - (a.year || 0));
+} else if (currentSort === "title") {
+  resultsToDisplay.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+} else if (currentSort === "title-desc") {
+  resultsToDisplay.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+}
+
+
+  renderResults(resultsToDisplay);
+}
+
+// Beispiel für performSearch (du kannst deine API-Logik hier einfügen)
+function performSearch() {
+  const query = document.getElementById("search-query").value.trim();
+  if (!query) return;
+
+  showLoader(true);
+
+  // Simulierte Suche (hier würdest du deine API-Anfrage stellen)
+  setTimeout(() => {
+    // Beispielhafte Daten (du ersetzt das mit API-Resultaten)
+    accumulatedResults = [
+      { title: "A Study on AI", year: 2020, authors: ["Alice", "Bob"], isOpenAccess: true },
+      { title: "Zebra Research", year: 2023, authors: ["Zoe"], isOpenAccess: false },
+      { title: "Blockchain Trends", year: 2021, authors: ["Dave"], isOpenAccess: true }
+    ];
+
+    currentSort = "relevance"; // zurücksetzen
+    document.getElementById("sort-select").value = "year"; // „Relevanz“ entspricht Original
+    document.getElementById("openaccess-checkbox").checked = false;
+    filterOpenAccess = false;
+
+    updateResultsView();
+    showLoader(false);
+  }, 1000);
+}
+
+// Ergebnisse darstellen (du kannst dies beliebig anpassen)
+function renderResults(results) {
+  const container = document.getElementById("results");
+  container.innerHTML = "";
+
+  if (results.length === 0) {
+    container.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+    return;
+  }
+
+  results.forEach((r) => {
+    const div = document.createElement("div");
+    div.className = "result-item";
+    div.innerHTML = `
+      <h3>${r.title}</h3>
+      <p><strong>Jahr:</strong> ${r.year || "unbekannt"}</p>
+      <p><strong>Autoren:</strong> ${Array.isArray(r.authors) ? r.authors.join(", ") : r.authors}</p>
+      <p><strong>Open Access:</strong> ${r.isOpenAccess ? "✅" : "❌"}</p>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Loader ein-/ausblenden (optional)
+function showLoader(show) {
+  const loader = document.getElementById("loader");
+  loader.classList.toggle("hidden", !show);
+}
+
 
 
 
@@ -297,7 +388,7 @@ document.getElementById('export-csv').addEventListener('click', () => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `search_results_${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `search_results_${new Date().toISOString().slice(0, 10)}.csv`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
