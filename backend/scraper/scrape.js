@@ -22,46 +22,56 @@ async function scrapeAIS(query, page = 1) {
   try {
     await pageInstance.goto('https://aisel.aisnet.org/', { waitUntil: 'domcontentloaded' });
 
-    // Cookie-Banner akzeptieren
+    // Cookie-Banner akzeptieren (falls vorhanden)
     try {
       await pageInstance.waitForSelector('#onetrust-accept-btn-handler', { timeout: 5000 });
       await pageInstance.click('#onetrust-accept-btn-handler');
-      await pageInstance.waitForTimeout(1000);
-    } catch { }
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } catch {}
 
-    // Suche ausführen
+    // Suche starten
     await pageInstance.waitForSelector('input[name="q"]');
     await pageInstance.type('input[name="q"]', query);
     await pageInstance.keyboard.press('Enter');
     await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
 
-    // Falls page > 1: weiterklicken
+    // Weiterklicken falls gewünscht
     for (let i = 1; i < page; i++) {
+      const oldTitle = await pageInstance.evaluate(() =>
+        document.querySelector('#results-list .result.query span.title')?.textContent?.trim() || ''
+      );
+
       await pageInstance.waitForSelector('a#next-page[title="Next Page"]', { timeout: 5000 });
       await pageInstance.click('a#next-page[title="Next Page"]');
-      await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
-      await pageInstance.waitForTimeout(500); // kurz warten für DOM-Update
+
+      await pageInstance.waitForFunction(
+        old => {
+          const newTitle = document.querySelector('#results-list .result.query span.title')?.textContent?.trim() || '';
+          return newTitle && newTitle !== old;
+        },
+        {},
+        oldTitle
+      );
+
+      await new Promise(resolve => setTimeout(resolve, 300));
     }
 
-    // Ergebnisse extrahieren
+    // Ergebnisse scrapen
     const articles = await pageInstance.evaluate(() => {
       const items = [];
-      document.querySelectorAll('#results-list > div.result.query').forEach(el => {
-        const title = el.querySelector('p.grid_10 > span.title')?.textContent?.trim() || '';
-        const authors = el.querySelector('p.grid_10 > span.author')?.textContent?.replace('Authors:', '').trim() || '';
-        const publication = el.querySelector('p.grid_10 > span.pub')?.textContent?.replace('Publication:', '').trim() || '';
-        const year = el.querySelector('p.grid_2.fr > span.year')?.textContent?.replace('Date:', '').trim() || '';
+      document.querySelectorAll('#results-list .result.query').forEach(el => {
+        const title = el.querySelector('span.title')?.textContent?.trim() || '';
+        const authors = el.querySelector('span.author')?.textContent?.replace('Authors:', '').trim() || '';
+        const publication = el.querySelector('span.pub')?.textContent?.replace('Publication:', '').trim() || '';
+        const year = el.querySelector('span.year')?.textContent?.replace('Date:', '').trim() || '';
         const detailLink = el.querySelector('a')?.href || '';
-
         items.push({ title, authors, publication, year, detailLink });
       });
       return items;
     });
 
     console.log(`📄 AISel – Seite ${page}, Artikel: ${articles.length}`);
-    articles.forEach((a, i) => {
-      console.log(`  ${i + 1}. ${a.title}`);
-    });
+    articles.forEach((a, i) => console.log(`  ${i + 1}. ${a.title}`));
 
     return articles;
 
