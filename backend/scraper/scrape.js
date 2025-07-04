@@ -2,16 +2,15 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
-async function scrapeAIS(query, start = 0) {
+async function scrapeAIS(query, page = 1) {
   const browser = await puppeteer.launch({
-    headless: true, // kannst du beim Debuggen auf false setzen
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     defaultViewport: null,
   });
 
   const pageInstance = await browser.newPage();
 
-  // Realistischen User-Agent und Header setzen
   await pageInstance.setUserAgent(
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
   );
@@ -20,18 +19,28 @@ async function scrapeAIS(query, start = 0) {
     Referer: 'https://aisel.aisnet.org/',
   });
 
-const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=${start}`;
-
   try {
-    await pageInstance.goto(searchUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+    await pageInstance.goto('https://aisel.aisnet.org/', { waitUntil: 'domcontentloaded' });
 
-    // Cookie-Banner akzeptieren (falls vorhanden)
+    // Cookie-Banner akzeptieren
     try {
       await pageInstance.waitForSelector('#onetrust-accept-btn-handler', { timeout: 5000 });
       await pageInstance.click('#onetrust-accept-btn-handler');
       await pageInstance.waitForTimeout(1000);
-    } catch {
-      console.log('Kein Banner gefunden.');
+    } catch {}
+
+    // Suche ausführen
+    await pageInstance.waitForSelector('input[name="q"]');
+    await pageInstance.type('input[name="q"]', query);
+    await pageInstance.keyboard.press('Enter');
+    await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
+
+    // Falls page > 1: weiterklicken
+    for (let i = 1; i < page; i++) {
+      await pageInstance.waitForSelector('.next-page', { timeout: 5000 });
+      await pageInstance.click('.next-page');
+      await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
+      await pageInstance.waitForTimeout(500); // kurz warten für DOM-Update
     }
 
     // Ergebnisse extrahieren
@@ -49,13 +58,16 @@ const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(qu
       return items;
     });
 
-    console.log('SCRAPE URL:', searchUrl);
+    console.log(`📄 AISel – Seite ${page}, Artikel: ${articles.length}`);
+    articles.forEach((a, i) => {
+      console.log(`  ${i + 1}. ${a.title}`);
+    });
 
-    console.log(`Gefundene Artikel auf Seite ${start}:`, articles.length);
     return articles;
-  } catch (error) {
-    console.error('Scraping fehlgeschlagen:', error.message);
-    throw error;
+
+  } catch (err) {
+    console.error('❌ Scraping fehlgeschlagen:', err.message);
+    throw err;
   } finally {
     await browser.close();
   }
