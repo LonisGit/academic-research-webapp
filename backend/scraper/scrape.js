@@ -27,7 +27,7 @@ async function scrapeAIS(query, page = 1) {
       await pageInstance.waitForSelector('#onetrust-accept-btn-handler', { timeout: 5000 });
       await pageInstance.click('#onetrust-accept-btn-handler');
       await pageInstance.waitForTimeout(1000);
-    } catch {}
+    } catch { }
 
     // Suche ausführen
     await pageInstance.waitForSelector('input[name="q"]');
@@ -37,8 +37,8 @@ async function scrapeAIS(query, page = 1) {
 
     // Falls page > 1: weiterklicken
     for (let i = 1; i < page; i++) {
-      await pageInstance.waitForSelector('.next-page', { timeout: 5000 });
-      await pageInstance.click('.next-page');
+      await pageInstance.waitForSelector('a#next-page[title="Next Page"]', { timeout: 5000 });
+      await pageInstance.click('a#next-page[title="Next Page"]');
       await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
       await pageInstance.waitForTimeout(500); // kurz warten für DOM-Update
     }

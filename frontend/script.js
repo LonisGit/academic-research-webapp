@@ -1,6 +1,6 @@
 let currentSource = 'all';
 let currentQuery = '';
-let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
+let currentPage = {}; // { springer: 1, sciencedirect: 1, ais: 1 }
 let accumulatedResults = [];
 
 document.querySelectorAll('.tab-selector button').forEach(btn => {
@@ -36,14 +36,7 @@ async function performSearch() {
 
 async function loadNextPage(source) {
   let page = currentPage[source] || 1;
-  let url = '';
-
-  if (source === 'ais') {
-    const start = (page - 1) * 25; // AIS verwendet Offset
-    url = `/api/ais/search?q=${encodeURIComponent(currentQuery)}&start=${start}`;
-  } else {
-    url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
-  }
+  let url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
 
   try {
     const res = await fetch(url);
@@ -55,16 +48,16 @@ async function loadNextPage(source) {
         source
       }));
 
+      const startIndex = accumulatedResults.length;
+      accumulatedResults.push(...mapped);
+
       if (page === 1) {
-        accumulatedResults = [...mapped];
         renderResults(accumulatedResults);
       } else {
-        accumulatedResults.push(...mapped);
-        renderNewResults(mapped);
+        renderNewResults(mapped, startIndex);
       }
 
       currentPage[source] = page + 1;
-
     } else {
       console.log(`Keine weiteren Ergebnisse für ${source}`);
     }
@@ -74,19 +67,15 @@ async function loadNextPage(source) {
   }
 }
 
-
-
-// Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
 function renderResults(results) {
   const container = document.getElementById('results');
-  container.innerHTML = ''; // Liste komplett löschen
+  container.innerHTML = '';
 
   if (!results.length) {
     container.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
     return;
   }
 
-  // Alten "Mehr laden" Button entfernen (falls vorhanden)
   const existingLoadMore = document.getElementById('load-more');
   if (existingLoadMore) existingLoadMore.remove();
 
@@ -99,16 +88,13 @@ function renderResults(results) {
   addDetailsEventListeners();
 }
 
-// Hängt nur neue Ergebnisse an (Liste nicht löschen)
-function renderNewResults(newResults) {
+function renderNewResults(newResults, startIndex) {
   const container = document.getElementById('results');
-
-  // Alten "Mehr laden" Button entfernen (damit wir ihn hinten neu anhängen)
   const existingLoadMore = document.getElementById('load-more');
   if (existingLoadMore) existingLoadMore.remove();
 
-  newResults.forEach((r, index) => {
-    const div = createResultCard(r, accumulatedResults.length - newResults.length + index);
+  newResults.forEach((r, i) => {
+    const div = createResultCard(r, startIndex + i);
     container.appendChild(div);
   });
 
@@ -116,10 +102,8 @@ function renderNewResults(newResults) {
   addDetailsEventListeners();
 }
 
-// Hilfsfunktion zum Erzeugen einer Ergebnis-Karte
 function createResultCard(r, index) {
   const authors = Array.isArray(r.authors) ? r.authors.join(', ') : r.authors || 'Unbekannt';
-  // Für AIS fallback auf publication und year:
   const journal = r.journal || r.publication || 'Nicht verfügbar';
   const date = r.publicationDate || r.year || 'Unbekannt';
   const access = r.isOpenAccess ? 'Open Access' : (r.source === 'ais' ? 'Nicht geprüft' : 'Kein Open Access');
@@ -156,12 +140,9 @@ function createResultCard(r, index) {
     ${keywords}
     ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
   `;
-
   return div;
 }
 
-
-// Fügt den "Mehr laden" Button ans Ende
 function addLoadMoreButton(container) {
   const loadMore = document.createElement('button');
   loadMore.id = 'load-more';
@@ -175,10 +156,9 @@ function addLoadMoreButton(container) {
   container.appendChild(loadMore);
 }
 
-// Event Listener für Details-Buttons (damit auch bei neu angehängten Ergebnissen funktioniert)
 function addDetailsEventListeners() {
   document.querySelectorAll('.details-btn').forEach(btn => {
-    btn.removeEventListener('click', detailsBtnHandler); // Entferne alten Listener, falls vorhanden
+    btn.removeEventListener('click', detailsBtnHandler);
     btn.addEventListener('click', detailsBtnHandler);
   });
 }
