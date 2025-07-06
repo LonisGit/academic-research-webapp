@@ -1,7 +1,14 @@
 let currentSource = 'all';
 let currentQuery = '';
 let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
-let accumulatedResults = [];
+
+let resultsBySource = {
+  sciencedirect: [],
+  springer: [],
+  ais: []
+};
+
+
 
 document.querySelectorAll('.tab-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -10,6 +17,100 @@ document.querySelectorAll('.tab-selector button').forEach(btn => {
     currentSource = btn.getAttribute('data-source');
   });
 });
+
+let accumulatedResults = []; // wird bei performSearch befüllt
+let currentSort = "relevance"; // Standard: Relevanz (also Originalreihenfolge)
+let filterOpenAccess = false; // Filter deaktiviert
+
+document.getElementById("sort-select").addEventListener("change", (e) => {
+  const selected = e.target.value;
+  currentSort = selected;
+  updateResultsView();
+});
+
+document.getElementById("openaccess-checkbox").addEventListener("change", (e) => {
+  filterOpenAccess = e.target.checked;
+  updateResultsView();
+});
+
+function updateResultsView() {
+  let resultsToDisplay = [...accumulatedResults];
+
+  // Filter anwenden
+  if (filterOpenAccess) {
+    resultsToDisplay = resultsToDisplay.filter(item => item.isOpenAccess);
+  }
+
+  // Sortierung anwenden (wenn nicht "relevance")
+  if (currentSort === "year") {
+  resultsToDisplay.sort((a, b) => (b.year || 0) - (a.year || 0));
+} else if (currentSort === "title") {
+  resultsToDisplay.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+} else if (currentSort === "title-desc") {
+  resultsToDisplay.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+}
+
+
+  renderResults(resultsToDisplay);
+}
+
+// Beispiel für performSearch (du kannst deine API-Logik hier einfügen)
+function performSearch() {
+  const query = document.getElementById("search-query").value.trim();
+  if (!query) return;
+
+  showLoader(true);
+
+  // Simulierte Suche (hier würdest du deine API-Anfrage stellen)
+  setTimeout(() => {
+    // Beispielhafte Daten (du ersetzt das mit API-Resultaten)
+    accumulatedResults = [
+      { title: "A Study on AI", year: 2020, authors: ["Alice", "Bob"], isOpenAccess: true },
+      { title: "Zebra Research", year: 2023, authors: ["Zoe"], isOpenAccess: false },
+      { title: "Blockchain Trends", year: 2021, authors: ["Dave"], isOpenAccess: true }
+    ];
+
+    currentSort = "relevance"; // zurücksetzen
+    document.getElementById("sort-select").value = "year"; // „Relevanz“ entspricht Original
+    document.getElementById("openaccess-checkbox").checked = false;
+    filterOpenAccess = false;
+
+    updateResultsView();
+    showLoader(false);
+  }, 1000);
+}
+
+// Ergebnisse darstellen (du kannst dies beliebig anpassen)
+function renderResults(results) {
+  const container = document.getElementById("results");
+  container.innerHTML = "";
+
+  if (results.length === 0) {
+    container.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+    return;
+  }
+
+  results.forEach((r) => {
+    const div = document.createElement("div");
+    div.className = "result-item";
+    div.innerHTML = `
+      <h3>${r.title}</h3>
+      <p><strong>Jahr:</strong> ${r.year || "unbekannt"}</p>
+      <p><strong>Autoren:</strong> ${Array.isArray(r.authors) ? r.authors.join(", ") : r.authors}</p>
+      <p><strong>Open Access:</strong> ${r.isOpenAccess ? "✅" : "❌"}</p>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Loader ein-/ausblenden (optional)
+function showLoader(show) {
+  const loader = document.getElementById("loader");
+  loader.classList.toggle("hidden", !show);
+}
+
+
+
 
 async function performSearch() {
   const query = document.getElementById('search-query').value.trim();
@@ -49,17 +150,20 @@ async function loadNextPage(source) {
   const data = await res.json();
 
   if (data.results && data.results.length > 0) {
-    const mapped = data.results.map(r => ({
-      ...r,
-      source
-    }));
+    const mapped = data.results.map(r => ({ ...r, source }));
+    resultsBySource[source].push(...mapped);
 
-    if (page === 1) {
-      accumulatedResults = [...mapped];
+    if (currentSource === 'all') {
+      mixResults();
       renderResults(accumulatedResults);
     } else {
-      accumulatedResults.push(...mapped);
-      renderNewResults(mapped);
+      if (currentPage[source] === 1) {
+        accumulatedResults = [...mapped];
+        renderResults(accumulatedResults);
+      } else {
+        accumulatedResults.push(...mapped);
+        renderNewResults(mapped);
+      }
     }
 
     currentPage[source] = page + 1;
@@ -68,6 +172,24 @@ async function loadNextPage(source) {
     console.log(`Keine weiteren Ergebnisse für ${source}`);
   }
 }
+
+function mixResults() {
+  const maxLength = Math.max(
+    resultsBySource.sciencedirect.length,
+    resultsBySource.springer.length,
+    resultsBySource.ais.length
+  );
+
+  accumulatedResults = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    if (resultsBySource.sciencedirect[i]) accumulatedResults.push(resultsBySource.sciencedirect[i]);
+    if (resultsBySource.springer[i]) accumulatedResults.push(resultsBySource.springer[i]);
+    if (resultsBySource.ais[i]) accumulatedResults.push(resultsBySource.ais[i]);
+  }
+
+}
+
 
 
 // Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
@@ -210,3 +332,66 @@ async function detailsBtnHandler(event) {
     btn.textContent = 'Fehler';
   }
 }
+
+document.getElementById('export-csv').addEventListener('click', () => {
+  if (accumulatedResults.length === 0) {
+    alert('Keine Ergebnisse zum Exportieren!');
+    return;
+  }
+
+  // CSV Header (Spaltennamen)
+  const headers = ['Titel', 'Autoren', 'Journal', 'Veröffentlichung', 'Zugang', 'Quelle', 'Link'];
+
+  // CSV-Daten aufbereiten
+  const rows = accumulatedResults.map(r => {
+    // Autoren als String
+    const authors = Array.isArray(r.authors) ? r.authors.join(', ') : (r.authors || '');
+
+    // Journal/Publication
+    const journal = r.journal || r.publication || '';
+
+    // Datum
+    const date = r.publicationDate || r.year || '';
+
+    // Zugang (Open Access / etc)
+    const access = r.isOpenAccess ? 'Open Access' : (r.source === 'ais' ? 'Nicht geprüft' : 'Kein Open Access');
+
+    // Link (Website oder DOI)
+    let link = '';
+    if (r.htmlLink) link = r.htmlLink;
+    else if (r.doi) link = `https://doi.org/${r.doi}`;
+
+    // CSV-Zeile als Array, Felder werden später korrekt escaped
+    return [r.title || '', authors, journal, date, access, r.source || '', link];
+  });
+
+  // Funktion um CSV-Zeilen zu erzeugen mit richtigem Escape für Kommas, Anführungszeichen etc.
+  function toCSVLine(arr) {
+    return arr.map(field => {
+      if (field == null) return '';
+      const str = field.toString();
+      if (str.includes('"') || str.includes(',') || str.includes('\n')) {
+        // Anführungszeichen im Feld mit doppelten Anführungszeichen escapen und Feld in ""
+        return `"${str.replace(/"/g, '""')}"`;
+      }
+      return str;
+    }).join(',');
+  }
+
+  // CSV-String zusammensetzen
+  const csvContent = [headers, ...rows].map(toCSVLine).join('\n');
+
+  // CSV als Blob erzeugen
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+  // Download-Link erzeugen
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `search_results_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
