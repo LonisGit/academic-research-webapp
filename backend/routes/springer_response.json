@@ -1,0 +1,3841 @@
+{
+  "apiMessage": "This JSON was provided by Springer Nature",
+  "query": "virtual reality",
+  "result": [
+    {
+      "total": "288532",
+      "start": "1",
+      "pageLength": "25",
+      "recordsDisplayed": "25"
+    }
+  ],
+  "records": [
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-98033-6_4",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-98033-6_4"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-98033-6_4"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-98033-6_4"
+        }
+      ],
+      "title": "VR-SBOM: Visualization of Software Bill of Materials and Software Supply Chains in Virtual Reality",
+      "creators": [
+        {
+          "ORCID": "0000-0002-7606-8226",
+          "creator": "Oberhauser, Roy"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Shishkov, Boris"
+        }
+      ],
+      "publicationName": "Business Modeling and Software Design",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-98033-6_4",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-98032-9",
+      "electronicIsbn": "978-3-031-98033-6",
+      "isbn": "978-3-031-98032-9",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-30",
+      "seriesId": "7911",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "As software capabilities increase and are delivered more frequently, further external software components (e.g., services, frameworks, platforms, or libraries) are incorporated. Thus, organizations and IT increasingly depend on more complex and dynamic Software Supply Chains (SSCs). Yet, the entire set of components involved are often opaque for end users, businesses, and even developers. Software Bill of Materials (SBOM) formats (SPDX, CycloneDX) provide essential information regarding components, yet their voluminous text and 2D tool visualization limitations obscure the underlying models and SSC. This paper contributes an immersive Virtual Reality (VR) solution concept VR-SBOM towards holistic contextualized multi-layout visualization of SSCs with heterogeneous SBOMs. Our prototype implementation demonstrates its feasibility, while a scenarios-based case study exhibits its potential and scalability.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Symposium on Business Modeling and Software Design",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "bmsd"
+            },
+            {
+              "type": "DBLP",
+              "value": "bmsd"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "bmsd2025"
+            }
+          ],
+          "confEventAbbreviation": "BMSD",
+          "confNumber": "15",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Milan",
+              "country": [
+                {
+                  "code": "IT",
+                  "value": "Italy"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "01"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://www.is-bmsd.org"
+        }
+      ],
+      "keyword": [
+        "Software Bill of Materials",
+        "SBOM",
+        "Software Supply Chain",
+        "Virtual Reality",
+        "Visualization",
+        "SPDX",
+        "CycloneDX"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Applications",
+        "IT in Business",
+        "Software Engineering/Programming and Operating Systems"
+      ],
+      "disciplines": [
+        {
+          "id": "3204",
+          "term": "Computer Application in Administrative Data Processing"
+        },
+        {
+          "id": "3205",
+          "term": "IT in Business"
+        },
+        {
+          "id": "5482",
+          "term": "Software Engineering"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-78973-1_1",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-78973-1_1"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-78973-1_1"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-78973-1_1"
+        }
+      ],
+      "title": "Cognition Meets Extended Reality",
+      "creators": [
+        {
+          "creator": "Rivera, Ferdinand"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "STEM Learning in Extended Reality",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-78973-1_1",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-78972-4",
+      "electronicIsbn": "978-3-031-78973-1",
+      "isbn": "978-3-031-78972-4",
+      "genre": "OriginalPaper Undergraduate textbook",
+      "onlineDate": "2025-05-02",
+      "seriesId": "16905",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This chapter begins with the different terminologies and concepts associated with extended reality. Key concepts in embodied, enactive, embedded, and extended cognition are also discussed to help us think about how to use extended reality apps for thinking and learning in STEM education contexts.",
+      "conferenceInfo": [],
+      "keyword": [
+        "Extended reality",
+        "Virtual reality",
+        "Augmented reality",
+        "Mixed reality",
+        "Embodied",
+        "Enactive",
+        "Embedded",
+        "And extended cognition"
+      ],
+      "subjects": [
+        "Education",
+        "Research Methods in Education",
+        "Computer Science, general",
+        "Mathematical and Computational Engineering",
+        "Computational Science and Engineering",
+        "Mathematics, general",
+        "Science Education"
+      ],
+      "disciplines": [
+        {
+          "id": "6350",
+          "term": "Research Methods in Education"
+        },
+        {
+          "id": "2971",
+          "term": "Computer Science"
+        },
+        {
+          "id": "4539",
+          "term": "Mathematical and Computational Engineering Applications"
+        },
+        {
+          "id": "4149",
+          "term": "Computational Science and Engineering"
+        },
+        {
+          "id": "4961",
+          "term": "General Mathematics and Education"
+        },
+        {
+          "id": "3747",
+          "term": "Science Education"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_14",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_14"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_14"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_14"
+        }
+      ],
+      "title": "Digital Heritage to Improve Accessibility and Break Down Architectural Barriers",
+      "creators": [
+        {
+          "ORCID": "0000-0001-6815-6659",
+          "creator": "Perri, Damiano"
+        },
+        {
+          "ORCID": "0009-0002-4739-7909",
+          "creator": "Martinelli, Sara"
+        },
+        {
+          "ORCID": "0000-0003-4327-520X",
+          "creator": "Gervasi, Osvaldo"
+        },
+        {
+          "ORCID": "0009-0004-3915-0599",
+          "creator": "Berti, David"
+        },
+        {
+          "ORCID": "0009-0007-9121-3958",
+          "creator": "Montorio, Gilberto Zinourov Roncalli"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_14",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This work aims to create a navigable virtual environment of the Bufalini Castle through virtual reality viewers, allowing the elimination of physical barriers and ensuring full accessibility to cultural sites. The majestic building, built during the 15th century, has an architectural conformation that is not easily accessible to people with mobility disabilities. The structure’s design, featuring narrow passages, multiple staircases, and a lack of elevators, currently restricts exploration for visitors using wheelchairs or facing other mobility challenges. The creation of the 3D scenario mainly uses virtual reality technologies. However, to ensure a good level of realism, photogrammetry involves capturing extensive photographic datasets of the castle, which are then processed to create geometrically accurate and texturally rich meshes, capturing a high level of graphic detail and realism essential for an engaging user experience.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Virtual Reality",
+        "Metaverse",
+        "Digital Twin",
+        "Cultural Heritage"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-78973-1_3",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-78973-1_3"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-78973-1_3"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-78973-1_3"
+        }
+      ],
+      "title": "Samples of Extended Reality Apps in Mathematics",
+      "creators": [
+        {
+          "creator": "Rivera, Ferdinand"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "STEM Learning in Extended Reality",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-78973-1_3",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-78972-4",
+      "electronicIsbn": "978-3-031-78973-1",
+      "isbn": "978-3-031-78972-4",
+      "genre": "OriginalPaper Undergraduate textbook",
+      "onlineDate": "2025-05-02",
+      "seriesId": "16905",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "In this chapter, a few XR apps that have been developed to support mathematics learning will be reviewed. In the discussion of each app, the design framework for deep learning with XR apps is used to identify some of the strengths and constraints of each app with a note that the analysis is based on what could be inferred from the available descriptions. Based on the assessment of the related research literature in the case of mathematics, it is clear more small- and large-scale evidence of their effectiveness is needed, especially how the content/curriculum/task, app, and assessment components of the design framework can be aligned and developed in ways that support the simultaneous evolution of and growth in learners’ thinking and reasoning and their intra-actions in the XR environment. Furthermore, more classroom-based implementation research studies around sustained use of such apps will also help establish their important, and perhaps necessary, role in supporting students’ learning of mathematics.",
+      "conferenceInfo": [],
+      "keyword": [
+        "AR",
+        "VR",
+        "And MR apps for fractions",
+        "Algebra",
+        "Geometry",
+        "Probability",
+        "Multivariable calculus",
+        "Hooke’s Law",
+        "And Galileo’s experiment",
+        "Mathematical concepts in museum exhibits",
+        "3D printer"
+      ],
+      "subjects": [
+        "Education",
+        "Research Methods in Education",
+        "Computer Science, general",
+        "Mathematical and Computational Engineering",
+        "Computational Science and Engineering",
+        "Mathematics, general",
+        "Science Education"
+      ],
+      "disciplines": [
+        {
+          "id": "6350",
+          "term": "Research Methods in Education"
+        },
+        {
+          "id": "2971",
+          "term": "Computer Science"
+        },
+        {
+          "id": "4539",
+          "term": "Mathematical and Computational Engineering Applications"
+        },
+        {
+          "id": "4149",
+          "term": "Computational Science and Engineering"
+        },
+        {
+          "id": "4961",
+          "term": "General Mathematics and Education"
+        },
+        {
+          "id": "3747",
+          "term": "Science Education"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-98033-6_5",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-98033-6_5"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-98033-6_5"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-98033-6_5"
+        }
+      ],
+      "title": "The Effectiveness of 3D Virtual Environments for BPMN Teaching: A Quasi-Experimental Study",
+      "creators": [
+        {
+          "creator": "Matias, Diógenes Carvalho"
+        },
+        {
+          "creator": "Souza Albuquerque, Lenylda Maria"
+        },
+        {
+          "ORCID": "0000-0003-0482-7649",
+          "creator": "Silveira, Denis Silva"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Shishkov, Boris"
+        }
+      ],
+      "publicationName": "Business Modeling and Software Design",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-98033-6_5",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-98032-9",
+      "electronicIsbn": "978-3-031-98033-6",
+      "isbn": "978-3-031-98032-9",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-30",
+      "seriesId": "7911",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Traditional Business Process Model and Notation (BPMN) diagrams, being static and highly abstract, often hinder comprehension, particularly for novice designers and students. This can lead to misinterpretations and process inefficiencies. In this study, we investigate whether immersive three-dimensional (3D) virtual environments can enhance the understanding of BPMN models. We developed a virtual reality (VR)-based BPMN visualization tool and conducted a quasi -experiment with 48 academic and professional participants, who interacted with a 3D BPMN model using Google Cardboard and a joystick. Participants completed comprehension tasks before and after the VR experience. The results show significant improvements in understanding and engagement, suggesting that immersive virtual reality can be a valuable educational tool for BPMN learning. This study contributes empirical evidence supporting the integration of 3D environments in process modeling education, offering benefits for both academic and professional training.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Symposium on Business Modeling and Software Design",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "bmsd"
+            },
+            {
+              "type": "DBLP",
+              "value": "bmsd"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "bmsd2025"
+            }
+          ],
+          "confEventAbbreviation": "BMSD",
+          "confNumber": "15",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Milan",
+              "country": [
+                {
+                  "code": "IT",
+                  "value": "Italy"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "01"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://www.is-bmsd.org"
+        }
+      ],
+      "keyword": [
+        "Business Process Modeling",
+        "Virtual Reality",
+        "Immersive 3D Environments",
+        "Process Education",
+        "Interactive Learning"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Applications",
+        "IT in Business",
+        "Software Engineering/Programming and Operating Systems"
+      ],
+      "disciplines": [
+        {
+          "id": "3204",
+          "term": "Computer Application in Administrative Data Processing"
+        },
+        {
+          "id": "3205",
+          "term": "IT in Business"
+        },
+        {
+          "id": "5482",
+          "term": "Software Engineering"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-78973-1_2",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-78973-1_2"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-78973-1_2"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-78973-1_2"
+        }
+      ],
+      "title": "Extended Reality Effects on Learning and Assessment",
+      "creators": [
+        {
+          "creator": "Rivera, Ferdinand"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "STEM Learning in Extended Reality",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-78973-1_2",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-78972-4",
+      "electronicIsbn": "978-3-031-78973-1",
+      "isbn": "978-3-031-78972-4",
+      "genre": "OriginalPaper Undergraduate textbook",
+      "onlineDate": "2025-05-02",
+      "seriesId": "16905",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "In this chapter, I discuss the impact of extended reality (XR) apps on learning and other educational outcomes and how XR is reconceptualizing some aspects of learning, learning environments, and assessment in interesting ways. The findings related to the use of XR apps in educational settings have been consistently positive despite constraints with the design structures, concerns about their potential negative effects in our relationships with one another, and other perennial issues, which range from access for all learners and costs associated with scaling XR to unproductive behavior, physical discomforts, females experiencing cybersickness with VR headsets more often than males, ethical dilemmas associated with safety and privacy, and a myriad of other concerns. The first part of this chapter provides evidence from several meta-analyses of XR apps’ effects involving large samples of typically developing learners and learners that require additional support services. The second part of the chapter explores the potential of XR apps in supporting personalized learning and how to design assessments that are appropriate in XR-mediated learning activity contexts. The third and closing part presents a design framework for deep learning with XR apps. The framework offers one way to assist the field of XR in STEM education and research to develop common or shared elements when designing and implementing XR apps for learning purposes.",
+      "conferenceInfo": [],
+      "keyword": [
+        "Effect sizes of XR interventions",
+        "Personalized learning environments",
+        "Stealth assessments",
+        "Virtual assessments",
+        "Design framework for XR apps for deep learning"
+      ],
+      "subjects": [
+        "Education",
+        "Research Methods in Education",
+        "Computer Science, general",
+        "Mathematical and Computational Engineering",
+        "Computational Science and Engineering",
+        "Mathematics, general",
+        "Science Education"
+      ],
+      "disciplines": [
+        {
+          "id": "6350",
+          "term": "Research Methods in Education"
+        },
+        {
+          "id": "2971",
+          "term": "Computer Science"
+        },
+        {
+          "id": "4539",
+          "term": "Mathematical and Computational Engineering Applications"
+        },
+        {
+          "id": "4149",
+          "term": "Computational Science and Engineering"
+        },
+        {
+          "id": "4961",
+          "term": "General Mathematics and Education"
+        },
+        {
+          "id": "3747",
+          "term": "Science Education"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-78973-1_4",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-78973-1_4"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-78973-1_4"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-78973-1_4"
+        }
+      ],
+      "title": "Samples of Extended Reality Apps in Science, Engineering, and Other Areas",
+      "creators": [
+        {
+          "creator": "Rivera, Ferdinand"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "STEM Learning in Extended Reality",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-78973-1_4",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-78972-4",
+      "electronicIsbn": "978-3-031-78973-1",
+      "isbn": "978-3-031-78972-4",
+      "genre": "OriginalPaper Undergraduate textbook",
+      "onlineDate": "2025-05-02",
+      "seriesId": "16905",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "In this chapter, a few XR apps that have been developed to support learning in the other STEM disciplines are explored. Consistent with the analysis of the XR math apps in Chap.  3 , the elements listed in Table 2.1 are used to identify some of the strengths and constraints of each app with a cautionary note that the analysis is based on what could be inferred from the available descriptions.",
+      "conferenceInfo": [],
+      "keyword": [
+        "AR",
+        "VR",
+        "and MR apps for physics",
+        "Climate change",
+        "Chemistry",
+        "Geography",
+        "Biology",
+        "Physics of stability"
+      ],
+      "subjects": [
+        "Education",
+        "Research Methods in Education",
+        "Computer Science, general",
+        "Mathematical and Computational Engineering",
+        "Computational Science and Engineering",
+        "Mathematics, general",
+        "Science Education"
+      ],
+      "disciplines": [
+        {
+          "id": "6350",
+          "term": "Research Methods in Education"
+        },
+        {
+          "id": "2971",
+          "term": "Computer Science"
+        },
+        {
+          "id": "4539",
+          "term": "Mathematical and Computational Engineering Applications"
+        },
+        {
+          "id": "4149",
+          "term": "Computational Science and Engineering"
+        },
+        {
+          "id": "4961",
+          "term": "General Mathematics and Education"
+        },
+        {
+          "id": "3747",
+          "term": "Science Education"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_17",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_17"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_17"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_17"
+        }
+      ],
+      "title": "A Strategy Utilizing an LLM and Augmented Reality for Handling the Missing Data: A Case Study Using Unity, Vuforia and ChatGPT",
+      "creators": [
+        {
+          "creator": "Limas, Enio Vicente"
+        },
+        {
+          "creator": "Fátima Rodrigues Guimarães, Rita"
+        },
+        {
+          "creator": "Meiguins, Bianchi Serique"
+        },
+        {
+          "creator": "Rocha, Leonardo Chaves Dutra"
+        },
+        {
+          "creator": "Dias, Diego Roberto Colombo"
+        },
+        {
+          "creator": "Paiva Guimarães, Marcelo"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_17",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "The presence of missing data in databases is common, which can make difficult or even prevent their analysis. Therefore, it is necessary to address them, for example, by filling in values or removing records or columns. This paper aims to present a strategy to facilitate the handling of missing data. To achieve this goal, the strategy uses an LLM (Large Language Models) for generating code and conducting data analysis, and 3D visualizations with Augmented Reality to understand the data missing. This strategy has been implemented in a case study, where users can visually explore, measure, and handle the data missing. The results indicate that the strategy can facilitate the analysis and handling of missing data; however, an increase in the complexity of visualizations and handling of data missing was observed as the scale of the datasets increased.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Missing data",
+        "Visualization",
+        "Augmented reality",
+        "LLM",
+        "ChatGPT"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97654-4_22",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97654-4_22"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97654-4_22"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97654-4_22"
+        }
+      ],
+      "title": "Estimation of Pedestrian Flows with Open-Source Crowding Data: An Integrated Modelin Nomentano-Tiburtina District, Rome",
+      "creators": [
+        {
+          "ORCID": "0009-0008-6596-179X",
+          "creator": "Nardoianni, Sofia"
+        },
+        {
+          "ORCID": "0009-0003-5326-3760",
+          "creator": "Cappelli, Giuseppe"
+        },
+        {
+          "ORCID": "0000-0002-4514-3625",
+          "creator": "D’Apuzzo, Mauro"
+        },
+        {
+          "ORCID": "0000-0003-4117-9644",
+          "creator": "Nicolosi, Vittorio"
+        },
+        {
+          "ORCID": "0000-0002-4743-1786",
+          "creator": "Pernetti, Mariano"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97654-4_22",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97653-7",
+      "electronicIsbn": "978-3-031-97654-4",
+      "isbn": "978-3-031-97653-7",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This research aims to investigate pedestrian crowding in the urban area of the Nomentano-Tiburtina district in Rome, through a methodology that sees an integrated approach between a configurational digital model, created with the Space Syntax tool by Qgis, and a physical model based on data collection through the mobile observer mode and therefore directly and through the use of Google Street View, in virtual terms. An innovative methodology was therefore developed to be able to obtain a physical model through virtual data collection, and this made it possible to calibrate the digital model. The calibration highlighted, with a Pearson of 0.88, the effectiveness of the methodology developed. At the same time, all the factors influencing the digital model, such as demand-driven and land-use, were also studied. From the analysis of these factors, it was found that the presence of shops on the pedestrian network plays a strategic role in the assessment of pedestrian crowding, recording a better correlation than the data measured on site. The conclusions drawn from this research, therefore, are of considerable help in urban planning, emphasizing concepts such as accessibility and pedestrian safety.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Pedestrian crowding",
+        "Space Syntax",
+        "Configurational model",
+        "Physical model"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_15",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_15"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_15"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_15"
+        }
+      ],
+      "title": "Hierarchical Sort-Based Parallel Interest-Matching Algorithm for Distributed Simulations",
+      "creators": [
+        {
+          "creator": "Châu, Ma Thị"
+        },
+        {
+          "ORCID": "0009-0001-5265-1660",
+          "creator": "Thịnh, Lê Thái"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_15",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Distributed virtual environments (DVEs) form the foundation for many real-time applications, such as online multiplayer games, virtual reality simulations, and collaborative systems. In these environments, a continuous flow of dynamic updates occurs, making it crucial to filter and deliver only the relevant information to each participant. This process, known as interest matching, ensures that each entity receives only the data it needs, thereby reducing bandwidth usage. Traditional methods do not fully exploit the parallel capabilities of modern multiprocessor hardware. The Hierarchical Sort-Based Parallel Interest Matching algorithm improves this process by organizing update and subscription regions into a hierarchical data structure and leveraging parallel processing. This paper identifies and addresses specific algorithmic shortcomings in the original HSP-IM, integrates the enhanced approach within the Unity engine, and conducts experimental benchmark comparisons to establish a foundation for developing simulation applications—particularly distributed VR/AR systems. Our findings demonstrate that advanced interest-matching techniques can be effectively implemented on widely used simulation platforms.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Distributed virtual environment",
+        "Interest matching",
+        "Parallel computation"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97654-4_3",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97654-4_3"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97654-4_3"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97654-4_3"
+        }
+      ],
+      "title": "Leveraging Gamification in E-Commerce for Climate Change: A Persuasive Technology Acceptance Model (TAM) Approach",
+      "creators": [
+        {
+          "creator": "Phang, Wei-Jie"
+        },
+        {
+          "creator": "Lee, Chien-Sing"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97654-4_3",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97653-7",
+      "electronicIsbn": "978-3-031-97654-4",
+      "isbn": "978-3-031-97653-7",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "The rising global population has intensified climate change, with 2022 evidencing the highest record of greenhouse gas emissions, at 53.79 billion metric tons. By 2024, the average surface temperature has also surpassed the 1.5-degree threshold. Despite increasing occurrences of climate change, there exists a gap between knowledge and acting towards mitigating climate change. This study integrates mini-games and gamification into an e-commerce mobile app as (in) direct persuasive mechanisms to reduce individual carbon footprints and increase willingness to mitigate/act. Hypotheses are: (1) climate change-oriented gamification in e-commerce will increase awareness of climate change; (2) gamification will encourage individuals and communities to act towards reducing climate change; (3) gamification, e-commerce, and a carbon footprint calculator will help reduce carbon footprint. Alpha-beta testing based on the Technology Acceptance Model, finds that the biggest difference between pre-post-game introduction is personal carbon footprint, followed by the level of willingness to engage with climate change, possible initiatives for mitigating climate change, and cause-effect purchase decisions in the ‘Shop’ feature. The transition from a simple calculator to a visualized carbon footprint report, the change of real-life challenges into interactive mini games, highlights the importance of direct contextualization and immediate relevance. However, the study faces limitations, due to small sample size, and reliance on generalized emission data, which affects the accuracy of the carbon footprint calculator.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Design thinking",
+        "metaverse",
+        "climate change",
+        "carbon footprint",
+        "e-commerce-mini-games",
+        "gamification"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-98033-6_22",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-98033-6_22"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-98033-6_22"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-98033-6_22"
+        }
+      ],
+      "title": "A.R.T.I.C.: A Conceptual Model for AR and UGC-Driven Social Media Marketing",
+      "creators": [
+        {
+          "ORCID": "0009-0008-0969-6434",
+          "creator": "Dimitrova, Rositsa"
+        },
+        {
+          "ORCID": "0000-0001-5859-9114",
+          "creator": "Rasheva-Yordanova, Katia"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Shishkov, Boris"
+        }
+      ],
+      "publicationName": "Business Modeling and Software Design",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-98033-6_22",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-98032-9",
+      "electronicIsbn": "978-3-031-98033-6",
+      "isbn": "978-3-031-98032-9",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-30",
+      "seriesId": "7911",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This paper presents the development and demonstration of the A.R.T.I.C. model—a conceptual framework for integrating augmented reality (AR) and user-generated content (UGC) into social media marketing campaigns. The model is tailored to the dynamics of TikTok, where users act as both consumers and content creators. A critical review of existing marketing models (e.g., AIDA, Customer Journey, 5E Framework) reveals their limitations in addressing AR-specific interaction, co-creation, and platform-native behavior. In response, the A.R.T.I.C. model structures the engagement process into five phases: Attract, Relate, Trigger, Influence, and Convert. To illustrate the model, an AR lipstick filter was created using TikTok’s Effect House platform. The prototype allowed users to visualize the product on their own faces and engage through recording and sharing, aligning with the model’s stages. The paper compares A.R.T.I.C. to established frameworks and highlights its potential as a strategic planning tool for immersive marketing. The study is exploratory in nature and does not include quantitative metrics but sets the foundation for future empirical validation.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Symposium on Business Modeling and Software Design",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "bmsd"
+            },
+            {
+              "type": "DBLP",
+              "value": "bmsd"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "bmsd2025"
+            }
+          ],
+          "confEventAbbreviation": "BMSD",
+          "confNumber": "15",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Milan",
+              "country": [
+                {
+                  "code": "IT",
+                  "value": "Italy"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "01"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://www.is-bmsd.org"
+        }
+      ],
+      "keyword": [
+        "Augmented Reality (AR)",
+        "TikTok Marketing",
+        "User-Generated Content (UGC)",
+        "Interactive Filters",
+        "A.R.T.I.C. Model"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Applications",
+        "IT in Business",
+        "Software Engineering/Programming and Operating Systems"
+      ],
+      "disciplines": [
+        {
+          "id": "3204",
+          "term": "Computer Application in Administrative Data Processing"
+        },
+        {
+          "id": "3205",
+          "term": "IT in Business"
+        },
+        {
+          "id": "5482",
+          "term": "Software Engineering"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97576-9_29",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97576-9_29"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97576-9_29"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97576-9_29"
+        }
+      ],
+      "title": "Digital Twin as a Tool for Participatory Cultural Heritage Regeneration: The Case of Pavia Historical Urban Center in Italy",
+      "creators": [
+        {
+          "ORCID": "0000-0001-7139-9184",
+          "creator": "Ni, Minqing"
+        },
+        {
+          "ORCID": "0000-0003-1604-6831",
+          "creator": "Cattaneo, Tiziano"
+        },
+        {
+          "creator": "Ji, Lyu"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97576-9_29",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97575-2",
+      "electronicIsbn": "978-3-031-97576-9",
+      "isbn": "978-3-031-97575-2",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This paper presents ongoing research developed within the project entitled Digital Modelling to Support the Design of Safe, Sustainable and Resilient Environments of the Department of Excellence 2023–2027 in the Department of Civil Engineering and Architecture of the University of Pavia. The main aim of this paper is to develop an investigation on the application of digital twins in historical cities to implementing a specific application scenario for the city of Pavia. The adopted method is based on an exploratory qualitative approach that is not only interpretative, but above all proactive and projective. The results obtained highlight the possibility of applying digital twins as an important tool that can combine adaptive regeneration design in medium-small sized historical urban centers such as the city of Pavia, balancing the needs of heritage protection with those of sustainable transformation, participation and inclusiveness.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Digital Twin",
+        "Cultural Heritage",
+        "Urban design",
+        "Historical Urban Centers",
+        "Environmental design"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97638-4_6",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97638-4_6"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97638-4_6"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97638-4_6"
+        }
+      ],
+      "title": "Pedestrian Behavior and Safety Perceptions Among University Students at Signalized Crosswalks",
+      "creators": [
+        {
+          "ORCID": "0000-0002-0762-249X",
+          "creator": "Bouhouras, Efstathios"
+        },
+        {
+          "creator": "Tsouggaris, Stefanos"
+        },
+        {
+          "creator": "Zois, Georgios"
+        },
+        {
+          "ORCID": "0000-0002-2373-4221",
+          "creator": "Fountas, Grigorios"
+        },
+        {
+          "ORCID": "0000-0002-3706-8530",
+          "creator": "Basbas, Socrates"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97638-4_6",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97637-7",
+      "electronicIsbn": "978-3-031-97638-4",
+      "isbn": "978-3-031-97637-7",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "A critical component of urban transportation, especially in places with heavy traffic, like university campuses, is pedestrian safety at signalized crosswalks. Crosswalks are places set aside for people to safely cross streets, but their efficacy frequently depends on how well traffic signals are followed, how drivers behave, and how the crosswalk is designed. Common issues include red light running, short durations of signal phases, and pedestrians and vehicles interacting simultaneously, which can lead to risky conflicts, and in turn, dangerous situations. For specific groups, such as university students navigating busy areas like campuses, tailored road safety policies—such as targeted interventions near educational institutions—can significantly reduce risks. By fostering a safer environment, cities can encourage walking as a sustainable and health-conscious mode of transport. This paper explores university students’ pedestrian behavior and perception of safety at signalized crosswalks, emphasizing interactions between pedestrians and vehicles near the campus of Aristotle University of Thessaloniki (AUTh), Greece. The paper evaluates variables affecting pedestrian decisions, including traffic volume, vehicle speed, and signal compliance using data from an in-situ questionnaire-based survey addressed to AUTh university students. The results underline the necessity for improved crosswalk design and enforcement strategies to enhance pedestrian safety. Practical recommendations include optimizing signal timing, increasing crosswalk visibility, and raising public awareness of pedestrian rights and responsibilities. This research provides valuable insights for urban planners and policymakers aiming to create safer and more accessible urban spaces.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "pedestrian safety",
+        "urban mobility",
+        "university students",
+        "signalized crosswalks"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-91508-6_10",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-91508-6_10"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-91508-6_10"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-91508-6_10"
+        }
+      ],
+      "title": "Industry Trends and Future Directions",
+      "creators": [
+        {
+          "creator": "Yi, Yasha"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "From 2D to 3D Photonic Integrated Circuits",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-91508-6_10",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-91507-9",
+      "electronicIsbn": "978-3-031-91508-6",
+      "isbn": "978-3-031-91507-9",
+      "genre": "OriginalPaper Professional book",
+      "onlineDate": "2025-06-13",
+      "seriesId": "16967",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "The field of 3D photonics is advancing rapidly, driven by the demand for photonic devices that are not only faster and more efficient but also highly compact and capable of supporting new applications. Innovations in 3D integration techniques—such as stacking multiple layers of photonic components, creating complex waveguide architectures, and employing advanced materials like silicon photonics and lithium niobate—are pushing the boundaries of what photonic devices can achieve. These advancements are particularly impactful in fields like telecommunications, where high data throughput and minimal latency are crucial, and computing, where photonic processors and interconnects promise to revolutionize data processing speeds and energy efficiency.",
+      "conferenceInfo": [],
+      "subjects": [
+        "Engineering",
+        "Electrical Engineering",
+        "Circuits and Systems"
+      ],
+      "disciplines": [
+        {
+          "id": "2886",
+          "term": "Electrical and Electronic Engineering"
+        },
+        {
+          "id": "4927",
+          "term": "Electronic Circuits and Systems"
+        },
+        {
+          "id": "4926",
+          "term": "Electronics Design and Verification"
+        },
+        {
+          "id": "6629",
+          "term": "Embedded Systems"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97606-3_17",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97606-3_17"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97606-3_17"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97606-3_17"
+        }
+      ],
+      "title": "Emotions Geogame: Developing a Game for Mapping Emotions and Evaluating Places",
+      "creators": [
+        {
+          "ORCID": "0000-0002-2751-9326",
+          "creator": "Poplin, Alenka"
+        },
+        {
+          "creator": "Sharma, Niall"
+        },
+        {
+          "creator": "Siddharth, Kumar"
+        },
+        {
+          "ORCID": "0000-0002-6239-5402",
+          "creator": "Garau, Chiara"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97606-3_17",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97605-6",
+      "electronicIsbn": "978-3-031-97606-3",
+      "isbn": "978-3-031-97605-6",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This paper demonstrates the state-of-the-art development of the Emotions Geogame. The main goal of the Emotions Geogame is to motivate users/players to go on an adventure, explore their built environment, socialize with other residents and report about the emotions they feel related to the visited places. This research is based on the three pillars of the previous research, which include research on emotions and their meaning, mapping emotions related to places, and location-based games that inspired this test implementation. The core component of the Emotions Geogame is its invitation to the users/players to record their emotions. It is accomplished in a two-step process. In the first step the user selects the emotion felt at the selected place. In the second step the user can provide a more comprehensive response to the reasons for the recorded feeling that stems from the environment. In the next steps of the implementation, the formal and dramatic elements of the Emotions Geogame will be further developed. The testing and data collection will be organized in the USA, Italy and India. The paper concludes with a discussion and directions for further research and implementation.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Geogame",
+        "Emotions",
+        "Places",
+        "Unity",
+        "Data Collection"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter",
+      "identifier": "doi:10.1007/978-3-031-90425-7_4",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-90425-7_4"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-90425-7_4"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-90425-7_4"
+        }
+      ],
+      "title": "Induced Antifragility",
+      "creators": [
+        {
+          "ORCID": "0000-0001-6184-0546",
+          "creator": "Axenie, Cristian"
+        },
+        {
+          "ORCID": "0000-0001-8703-6791",
+          "creator": "Akbarzadeh, Meisam"
+        },
+        {
+          "ORCID": "0000-0001-7462-4674",
+          "creator": "Makridis, Michail A."
+        },
+        {
+          "ORCID": "0000-0002-9784-3973",
+          "creator": "Saveriano, Matteo"
+        },
+        {
+          "ORCID": "0000-0002-8290-522X",
+          "creator": "Stancu, Alexandru"
+        }
+      ],
+      "bookEditors": [],
+      "publicationName": "Applied Antifragility in Technical Systems",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-90425-7_4",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-90424-0",
+      "electronicIsbn": "978-3-031-90425-7",
+      "isbn": "978-3-031-90424-0",
+      "genre": "OriginalPaper Brief/Pivot",
+      "onlineDate": "2025-07-02",
+      "seriesId": "10028",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "This chapter is dedicated to induced antifragility. Here, we discuss the benefits of input distribution irregularities based on emergent system dynamics in a feedback loop with a controller that drives the system towards a prescribed dynamics. We consider methods for detecting, analyzing, modelling, and controlling road traffic, robotics, and industrial control systems’ antifragility.",
+      "conferenceInfo": [],
+      "subjects": [
+        "Computer Science",
+        "Theory of Computation",
+        "Algorithm Analysis and Problem Complexity",
+        "Data Structures and Information Theory",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Robotics"
+      ],
+      "disciplines": [
+        {
+          "id": "4815",
+          "term": "Theory and Algorithms for Application Domains"
+        },
+        {
+          "id": "5704",
+          "term": "Design and Analysis of Algorithms"
+        },
+        {
+          "id": "2967",
+          "term": "Data Science"
+        },
+        {
+          "id": "3817",
+          "term": "Machine Learning"
+        },
+        {
+          "id": "4021",
+          "term": "Robotics"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-981-96-8889-0_12",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-981-96-8889-0_12"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-981-96-8889-0_12"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-981-96-8889-0_12"
+        }
+      ],
+      "title": "SYNCAD: Synchronised Yields from Narrative Cross Modal Audio and Data",
+      "creators": [
+        {
+          "ORCID": "0009-0005-8873-1792",
+          "creator": "Madivada, Aditya Vardhan"
+        },
+        {
+          "ORCID": "0009-0009-6488-5630",
+          "creator": "Bhumireddi, Madhav Kartheek"
+        },
+        {
+          "ORCID": "0000-0002-7463-5936",
+          "creator": "Srinivasa Desikan, K. E."
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Fujita, Hamido"
+        },
+        {
+          "bookEditor": "Watanobe, Yutaka"
+        },
+        {
+          "bookEditor": "Ali, Moonis"
+        },
+        {
+          "bookEditor": "Wang, Yinglin"
+        }
+      ],
+      "publicationName": "Advances and Trends in Artificial Intelligence. Theory and Applications",
+      "openaccess": "false",
+      "doi": "10.1007/978-981-96-8889-0_12",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Singapore",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-981-96-8888-3",
+      "electronicIsbn": "978-981-96-8889-0",
+      "isbn": "978-981-96-8888-3",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-07-01",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Singapore Pte Ltd.",
+      "abstract": "This paper introduces SYNCAD, a novel framework for generating synchronized and contextually aligned videos from audio inputs. The framework addresses the challenges of semantic and temporal synchronization that often limit traditional audio-driven video generation methods. SYNCAD achieves this through two key components: the SonoToken Transformer and Audio-Conditioned Temporal Sequences. The SonoToken Transformer leverages advanced audio models, such as YAMNet and BEATs, to extract semantic sound categories and temporal features, converting them into pseudo-text inputs compatible with pre-trained text-to-video architectures. Audio-Conditioned Temporal Sequences ensure precise frame-by-frame synchronization by dynamically balancing local and global audio cues, with an attentive pooling mechanism prioritizing critical audio components. Experimental results demonstrate SYNCAD’s superiority over baseline methods in video quality, semantic relevance, and temporal alignment, as evidenced by significant improvements in metrics like Inception Score, CLIP Similarity, and Temporal Warping Error. The framework holds promise for applications in multimedia production, educational tools, and interactive entertainment, with future work focusing on integrating text-based guidance and enhancing synchronization precision.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "ieaaie"
+            },
+            {
+              "type": "DBLP",
+              "value": "ieaaie"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "ieaaie2025"
+            }
+          ],
+          "confEventAbbreviation": "IEA/AIE",
+          "confNumber": "38",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Kytakyushu",
+              "country": [
+                {
+                  "code": "JP",
+                  "value": "Japan"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "01"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "04"
+            }
+          ],
+          "confEventURL": "https://www.i-somet.org/iea-aie2025/committees.html"
+        }
+      ],
+      "keyword": [
+        "SonoToken Transformer",
+        "temporal alignment",
+        "semantic relevance",
+        "audio-conditioned sequences",
+        "YAMNet",
+        "BEATs model",
+        "multimedia production",
+        "attentive pooling"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-98033-6_18",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-98033-6_18"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-98033-6_18"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-98033-6_18"
+        }
+      ],
+      "title": "Open Data Portals Engagement: A Cross-Country Analysis of Game Elements",
+      "creators": [
+        {
+          "ORCID": "0000-0001-9291-2039",
+          "creator": "Satrio, Budi"
+        },
+        {
+          "ORCID": "0000-0003-3336-3484",
+          "creator": "Kleiman, Fernando"
+        },
+        {
+          "ORCID": "0000-0001-6211-8790",
+          "creator": "Janssen, Marijn"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Shishkov, Boris"
+        }
+      ],
+      "publicationName": "Business Modeling and Software Design",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-98033-6_18",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-98032-9",
+      "electronicIsbn": "978-3-031-98033-6",
+      "isbn": "978-3-031-98032-9",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-30",
+      "seriesId": "7911",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Despite their pivotal role in promoting transparency, open data portals often struggle to engage citizens, functioning instead as static ‘data graveyards’. While external activities, such as hackathons, can raise awareness, they do not directly cultivate sustained engagement within the portals. One promising approach to leverage citizens’ engagement motivation is the integration of game elements to transform passive data access into interactive gamified experiences. However, despite its potential, there is limited research on gamified citizens’ motivation to engage with open data portals. This paper examines how static and dynamic game elements are implemented across 31 open data portals. Lastly, we use the Self-Concordance Model to discuss the alignment between motivation, personal values, and game elements. Our findings reveal that most portals incorporate ‘discovery’ elements into their dataset-searching features, subtly gamifying exploration. Additionally, portals emphasising external activities, such as hackathons and events, often lack integrated social features, suggesting a trade-off between external engagement and sustained in-portal interaction. These findings challenge the assumption that open data engagement relies primarily on external initiatives, emphasising in-portal gamification instead. This study provides recommendations for policymakers to engage with users within open data portals.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Symposium on Business Modeling and Software Design",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "bmsd"
+            },
+            {
+              "type": "DBLP",
+              "value": "bmsd"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "bmsd2025"
+            }
+          ],
+          "confEventAbbreviation": "BMSD",
+          "confNumber": "15",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Milan",
+              "country": [
+                {
+                  "code": "IT",
+                  "value": "Italy"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "01"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://www.is-bmsd.org"
+        }
+      ],
+      "keyword": [
+        "Open Data Portals",
+        "Gamification",
+        "Game Elements",
+        "In-Portal Engagement",
+        "Cross-Country Analysis",
+        "Self-Concordance Model"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Applications",
+        "IT in Business",
+        "Software Engineering/Programming and Operating Systems"
+      ],
+      "disciplines": [
+        {
+          "id": "3204",
+          "term": "Computer Application in Administrative Data Processing"
+        },
+        {
+          "id": "3205",
+          "term": "IT in Business"
+        },
+        {
+          "id": "5482",
+          "term": "Software Engineering"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_13",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_13"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_13"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_13"
+        }
+      ],
+      "title": "Real-Time Rigging and Secondary Motion for Sketch-Based 3D Characters",
+      "creators": [
+        {
+          "ORCID": "0000-0002-9124-6473",
+          "creator": "Ma, Chau Thi"
+        },
+        {
+          "creator": "Le, Tam Minh"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_13",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Sketch-based modeling systems simplify the creation of 3D characters, but animating them remains a challenging task due to the complexity of rigging and secondary motion control. Traditional animation workflows require extensive manual effort to define skeletal structures and dynamic motion, making the process time-consuming and technically demanding. This creates a gap between creative expression and technical challenges. To address the problem, we propose an interactive framework that combines real-time skeletonization with secondary motion generation using a mass-spring system. Our system includes three key functions: (i) the user sketches a character, (ii) the system automatically generates a rigged skeleton, and (iii) the system applies dynamic animations without the need for manual keyframing. The system combines the best aspects of two methods: the simplicity and accessibility of sketch-based modeling, and the expressive, physics-driven secondary motion provided by the mass-spring system. Beginner animators can create expressive, physics-driven animations effortlessly without tedious adjustments.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Sketch-based modeling",
+        "Mass-spring system",
+        "Real-time animation"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97654-4_19",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97654-4_19"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97654-4_19"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97654-4_19"
+        }
+      ],
+      "title": "Building the Future While Preserving the Past: Digital Tools and Community Engagement to “Re-Generate” Historic Buildings in Post-Disaster Scenarios",
+      "creators": [
+        {
+          "ORCID": "0000-0002-8415-2866",
+          "creator": "Angrisano, Mariarosaria"
+        },
+        {
+          "ORCID": "0009-0001-9517-7129",
+          "creator": "Neglia, Grazia"
+        },
+        {
+          "ORCID": "0000-0002-0758-0795",
+          "creator": "Mecca, Ippolita"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97654-4_19",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97653-7",
+      "electronicIsbn": "978-3-031-97654-4",
+      "isbn": "978-3-031-97653-7",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Cultural heritage has always been recognized as a fil rouge that links the past, present, and future. Today more than ever, its existence is threatened by natural disasters, conflicts, and vandalism that have a serious impact on the entire urban fabric. Digital technology and community engagement can contribute to its safeguarding as well as to “re-generating” urban spaces and giving life back to the cultural identity that may have been lost due to disaster or war. In this perspective, rebuilding the urban spaces after a traumatic event represents a key strategy for resilience, providing cities and communities the opportunity to reinvent themselves. To this end, the paper intends to show that adaptive reuse of built heritage, when properly supported by digital technologies and collaborative and co-design multidisciplinary participatory processes, can be an effective strategy for renewing and thus preserving memories of built heritage damaged by disasters or armed conflict. The analysis of best practices for adapting historic buildings, especially those repurposed after wartime damage, clearly supports this point.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Adaptive reuse",
+        "built heritage",
+        "community engagement",
+        "digital technologies",
+        "co-design"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97648-3_10",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97648-3_10"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97648-3_10"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97648-3_10"
+        }
+      ],
+      "title": "Review of the Climate Change Resilience Measures in Port Context",
+      "creators": [
+        {
+          "creator": "Pisano, Federica"
+        },
+        {
+          "creator": "Gallo, Andrea"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97648-3_10",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97647-6",
+      "electronicIsbn": "978-3-031-97648-3",
+      "isbn": "978-3-031-97647-6",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Ports are one of the least sustainable places in the world. Port operations’ negative externalities contribute significantly to global warming, representing a threat especially to human and animal communities living nearby. Simultaneously, ports, alongside coastal areas, are starting to be seriously affected by climate change hazards, with numerous environmental and economic implications. This paper investigates different climate change resilience strategies to be implemented in the port context, arguing for the importance of such action beings ports the direct stakeholders of climate change from both sides of the same coin. Through a comprehensive and organic approach, it analyses five different lines of action aimed at reducing the negative externalities of port’s operations, enhancing port’s climate resilience and protecting the surrounding environment: adaptation, mitigation, soft measures, nature-based solutions and digitalization. Finally, it explores the case study of the port of Rotterdam, an excellent example of a committed port in terms of climate resilience, ultimately demonstrating the efficiency and validity of a holistic approach to climate change resilience in the port context in terms of emissions reduction and environment resilience.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Port Development",
+        "Sustainable Ports",
+        "Climate Change"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_16",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_16"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_16"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_16"
+        }
+      ],
+      "title": "Fast Agent-Based Solution to Evaluate the Matching of Public Transport Offer vs Citizen Mobility Demand",
+      "creators": [
+        {
+          "creator": "Fanfani, Marco"
+        },
+        {
+          "creator": "Giovannoni, Alberto"
+        },
+        {
+          "creator": "Ipsaro Palesi, Luciano Alessandro"
+        },
+        {
+          "creator": "Irum, Ammarah"
+        },
+        {
+          "creator": "Nesi, Paolo"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_16",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Public transportation is fundamental to support the mobility demand of citizens and drive the development of sustainable and green mobility in smart city scenarios. However, planning an efficient public transport system is a challenging task since it requires on the one hand to deploy a widespread, fast, and reliable system able to fully respond to the mobility demand. On the other hand, financial sustainability must be guaranteed by avoiding excessive and unfruitful expenses that could in the long run hamper the whole transportation system. Therefore, to find such a balance, there is the need for tools able to analyze and evaluate the match between the transportation offer and the mobility demand to allow city officers and decision makers to plan optimal services. To respond to this necessity, in this paper we propose an agent-based solution, that, differently from available software, is easily configurable, requires minimal input, and is able to carry out simulation in a timely manner yet providing useful and accurate insights. Moreover, the proposed solution can be easily adopted for what-if analysis frameworks, thus realizing an extremely valuable tool for smart city transportation planning.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Public transport offer vs demand",
+        "Simulation",
+        "Agent-based",
+        "Smart mobility"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97576-9_28",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97576-9_28"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97576-9_28"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97576-9_28"
+        }
+      ],
+      "title": "Leveraging Gamification to Strengthen Social Resilience and Climate Resilience",
+      "creators": [
+        {
+          "ORCID": "0000-0002-5541-4433",
+          "creator": "Mohammadpourlima, Naghmeh"
+        },
+        {
+          "ORCID": "0000-0002-3928-4114",
+          "creator": "Nygård, Mikael"
+        },
+        {
+          "ORCID": "0000-0002-4418-5030",
+          "creator": "P. Heris, Mehdi"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97576-9_28",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97575-2",
+      "electronicIsbn": "978-3-031-97576-9",
+      "isbn": "978-3-031-97575-2",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "Climate change presents challenges to urban areas and vulnerable communities, making resilience strategies crucial. Climate resilience refers to a system’s ability to withstand, adapt to, and recover from climate-related stresses while minimizing future vulnerabilities. Social resilience, which relies on strong networks, collective action, and knowledge-sharing, plays an important role in improving climate resilience. However, a theoretical gap exists in linking these concepts within climate change research. This study, through a systematic literature review, explores the relationship between social resilience and climate resilience in urban communities and examines how gamification can enhance resilience-building efforts. The findings present conceptual frameworks that show social resilience strengthens climate resilience by improving governance, fostering knowledge-sharing, and helping communities adapt to climate challenges. The research also highlights that gamification can drive behavior change, improve disaster preparedness, and increase policy engagement, all contributing to social and climate resilience. By integrating gamification into resilience strategies, communities can improve adaptation practices, strengthen social connections, and enhance collective responses to climate challenges.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "Gamification",
+        "Social resilience",
+        "Climate resilience",
+        "Game App",
+        "Gamified Place",
+        "Urban Gamification",
+        "Sustainable development"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    },
+    {
+      "contentType": "Chapter ConferencePaper",
+      "identifier": "doi:10.1007/978-3-031-97657-5_10",
+      "language": "en",
+      "url": [
+        {
+          "format": "html",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/978-3-031-97657-5_10"
+        },
+        {
+          "format": "pdf",
+          "platform": "web",
+          "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/978-3-031-97657-5_10"
+        },
+        {
+          "format": "",
+          "platform": "",
+          "value": "http://dx.doi.org/10.1007/978-3-031-97657-5_10"
+        }
+      ],
+      "title": "GIS-Based Accessibility and Safety Assessment in Small Historic Centres in Inner Areas. Pilot Application in Stigliano and Interoperability with a Digital Twin",
+      "creators": [
+        {
+          "ORCID": "0000-0002-3236-8681",
+          "creator": "Caselli, Barbara"
+        },
+        {
+          "ORCID": "0009-0009-3137-0526",
+          "creator": "Panebianco, Altea"
+        },
+        {
+          "ORCID": "0000-0001-9792-9323",
+          "creator": "Placa, Silvia"
+        },
+        {
+          "ORCID": "0009-0003-6028-4893",
+          "creator": "Laera, Rossella"
+        }
+      ],
+      "bookEditors": [
+        {
+          "bookEditor": "Gervasi, Osvaldo"
+        },
+        {
+          "bookEditor": "Murgante, Beniamino"
+        },
+        {
+          "bookEditor": "Garau, Chiara"
+        },
+        {
+          "bookEditor": "Karaca, Yeliz"
+        },
+        {
+          "bookEditor": "Faginas Lago, Maria Noelia"
+        },
+        {
+          "bookEditor": "Scorza, Francesco"
+        },
+        {
+          "bookEditor": "Braga, Ana Cristina"
+        }
+      ],
+      "publicationName": "Computational Science and Its Applications – ICCSA 2025 Workshops",
+      "openaccess": "false",
+      "doi": "10.1007/978-3-031-97657-5_10",
+      "publisher": "Springer",
+      "publisherName": "Springer Nature Switzerland",
+      "publicationDate": "2026-01-01",
+      "publicationType": "Book",
+      "printIsbn": "978-3-031-97656-8",
+      "electronicIsbn": "978-3-031-97657-5",
+      "isbn": "978-3-031-97656-8",
+      "genre": "OriginalPaper Proceedings",
+      "onlineDate": "2025-06-28",
+      "seriesId": "558",
+      "copyright": "©2026 The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG",
+      "abstract": "The high vulnerability and exposure to environmental risk of most historic villages in Italian inland areas, together with the poor accessibility, the degradation imposed by abandonment, and the increase in the elderly population, make interventions for the functional rehabilitation or reconversion of the built heritage and related public space complex and controversial. This opens questions also with respect to the evaluation and identification of possible actions to improve territorial and local accessibility emphasizing the need to consider among the priority the redevelopment, transformation and securing of the public space. Within this framework, the article experiments with a possible decision-supporting evaluation process in the minor historic center of Stigliano (MT), the lead municipality of the inner area Montagna Materana and currently the site of an experimental inter-university research project on digital twin implementation. The contribution gives a first reading of information collected through digital survey and GIS-based collaborative data collection techniques and set up a methodology to plan and prioritise interventions aimed at improving accessibility and safety. The methodology is based on a set of indicators for evaluating usability, walkability, and vulnerability. The objective is twofold: on the one hand, to ensure accessibility and safety of the routes that provide access to services and relational nodes within the historic center, with particular attention to daily use and the most fragile users; on the other hand, to make tourist usability more attractive, comfortable and inclusive. Future developments of the research are aimed at exploring the potential of new digital technologies, like the digital twin, to improve the implemented decision support tool, efficiently informing planning and management processes, as well as improving spatial (not only physical) accessibility and the enhancement of landscape, environmental, cultural, historical and community resources.",
+      "conferenceInfo": [
+        {
+          "confSeriesName": "International Conference on Computational Science and Its Applications",
+          "confSeriesID": [
+            {
+              "type": "Springer",
+              "value": "iccsa"
+            },
+            {
+              "type": "DBLP",
+              "value": "iccsa"
+            }
+          ],
+          "confEventID": [
+            {
+              "type": "Springer",
+              "value": "iccsa2025"
+            }
+          ],
+          "confEventAbbreviation": "ICCSA",
+          "confNumber": "25",
+          "confEventLocation": [
+            {
+              "locationType": "InPerson",
+              "city": "Istanbul",
+              "country": [
+                {
+                  "code": "TR",
+                  "value": "Türkiye"
+                }
+              ]
+            }
+          ],
+          "confEventDateStart": [
+            {
+              "year": "2025",
+              "month": "06",
+              "day": "30"
+            }
+          ],
+          "confEventDateEnd": [
+            {
+              "year": "2025",
+              "month": "07",
+              "day": "03"
+            }
+          ],
+          "confEventURL": "https://iccsa.org/"
+        }
+      ],
+      "keyword": [
+        "accessibility",
+        "safety",
+        "minor historic village",
+        "public space",
+        "digital twin"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Computer Communication Networks",
+        "Computer Systems Organization and Communication Networks",
+        "Computer System Implementation",
+        "Artificial Intelligence"
+      ],
+      "disciplines": [
+        {
+          "id": "7256",
+          "term": "Computer Communication Networks"
+        },
+        {
+          "id": "4767",
+          "term": "Computer Engineering and Networks"
+        },
+        {
+          "id": "7418",
+          "term": "Computer System Implementation"
+        },
+        {
+          "id": "2970",
+          "term": "Artificial Intelligence"
+        }
+      ]
+    }
+  ],
+  "facets": [
+    {
+      "name": "subject",
+      "values": [
+        {
+          "value": "Computer Science",
+          "count": "72933"
+        },
+        {
+          "value": "Engineering",
+          "count": "46347"
+        },
+        {
+          "value": "Artificial Intelligence",
+          "count": "41711"
+        },
+        {
+          "value": "User Interfaces and Human Computer Interaction",
+          "count": "30275"
+        },
+        {
+          "value": "Medicine & Public Health",
+          "count": "23828"
+        },
+        {
+          "value": "Computer Communication Networks",
+          "count": "22852"
+        },
+        {
+          "value": "Business and Management",
+          "count": "20069"
+        },
+        {
+          "value": "Education",
+          "count": "18910"
+        },
+        {
+          "value": "Computational Intelligence",
+          "count": "17618"
+        },
+        {
+          "value": "Information Systems Applications (incl. Internet)",
+          "count": "16676"
+        },
+        {
+          "value": "Image Processing and Computer Vision",
+          "count": "15587"
+        },
+        {
+          "value": "Social Sciences",
+          "count": "12967"
+        },
+        {
+          "value": "Computer Applications",
+          "count": "11890"
+        },
+        {
+          "value": "Computer Imaging, Vision, Pattern Recognition and Graphics",
+          "count": "11032"
+        },
+        {
+          "value": "Computers and Education",
+          "count": "10824"
+        },
+        {
+          "value": "Computer Graphics",
+          "count": "10464"
+        },
+        {
+          "value": "Education, general",
+          "count": "9945"
+        },
+        {
+          "value": "Computer Science, general",
+          "count": "9305"
+        },
+        {
+          "value": "Communications Engineering, Networks",
+          "count": "8789"
+        },
+        {
+          "value": "Psychology",
+          "count": "8469"
+        }
+      ]
+    },
+    {
+      "name": "keyword",
+      "values": [
+        {
+          "value": "Virtual reality",
+          "count": "6752"
+        },
+        {
+          "value": "Augmented reality",
+          "count": "3774"
+        },
+        {
+          "value": "Artificial intelligence",
+          "count": "3670"
+        },
+        {
+          "value": "Virtual Reality",
+          "count": "3136"
+        },
+        {
+          "value": "Machine learning",
+          "count": "2429"
+        },
+        {
+          "value": "Education",
+          "count": "2326"
+        },
+        {
+          "value": "Augmented Reality",
+          "count": "2254"
+        },
+        {
+          "value": "COVID-19",
+          "count": "2150"
+        },
+        {
+          "value": "Simulation",
+          "count": "2131"
+        },
+        {
+          "value": "Deep learning",
+          "count": "1845"
+        },
+        {
+          "value": "Technology",
+          "count": "1769"
+        },
+        {
+          "value": "Industry 4.0",
+          "count": "1717"
+        },
+        {
+          "value": "Sustainability",
+          "count": "1322"
+        },
+        {
+          "value": "Cloud computing",
+          "count": "1299"
+        },
+        {
+          "value": "Higher education",
+          "count": "1255"
+        },
+        {
+          "value": "Social media",
+          "count": "1246"
+        },
+        {
+          "value": "Training",
+          "count": "1141"
+        },
+        {
+          "value": "Blockchain",
+          "count": "1071"
+        },
+        {
+          "value": "Gamification",
+          "count": "1007"
+        },
+        {
+          "value": "Innovation",
+          "count": "986"
+        }
+      ]
+    },
+    {
+      "name": "pub",
+      "values": [
+        {
+          "value": "Scientific Reports",
+          "count": "3146"
+        },
+        {
+          "value": "Multimedia Tools and Applications",
+          "count": "2245"
+        },
+        {
+          "value": "Education and Information Technologies",
+          "count": "1671"
+        },
+        {
+          "value": "Virtual Reality",
+          "count": "1416"
+        },
+        {
+          "value": "The Visual Computer",
+          "count": "1399"
+        },
+        {
+          "value": "Surgical Endoscopy",
+          "count": "986"
+        },
+        {
+          "value": "BMC Medical Education",
+          "count": "923"
+        },
+        {
+          "value": "The International Journal of Advanced Manufacturing Technology",
+          "count": "913"
+        },
+        {
+          "value": "Nature",
+          "count": "843"
+        },
+        {
+          "value": "International Journal of Computer Assisted Radiology and Surgery",
+          "count": "710"
+        },
+        {
+          "value": "Advances in Visual Computing",
+          "count": "709"
+        },
+        {
+          "value": "Journal of NeuroEngineering and Rehabilitation",
+          "count": "704"
+        },
+        {
+          "value": "AI & SOCIETY",
+          "count": "656"
+        },
+        {
+          "value": "Experimental Brain Research",
+          "count": "612"
+        },
+        {
+          "value": "Nature Communications",
+          "count": "590"
+        },
+        {
+          "value": "Wireless Personal Communications",
+          "count": "587"
+        },
+        {
+          "value": "Humanities and Social Sciences Communications",
+          "count": "567"
+        },
+        {
+          "value": "The Journal of Supercomputing",
+          "count": "548"
+        },
+        {
+          "value": "Current Psychology",
+          "count": "542"
+        },
+        {
+          "value": "Encyclopedia of Computer Graphics and Games",
+          "count": "491"
+        }
+      ]
+    },
+    {
+      "name": "year",
+      "values": [
+        {
+          "value": "2026",
+          "count": "33"
+        },
+        {
+          "value": "2025",
+          "count": "19490"
+        },
+        {
+          "value": "2024",
+          "count": "30326"
+        },
+        {
+          "value": "2023",
+          "count": "26677"
+        },
+        {
+          "value": "2022",
+          "count": "23256"
+        },
+        {
+          "value": "2021",
+          "count": "20501"
+        },
+        {
+          "value": "2020",
+          "count": "17224"
+        },
+        {
+          "value": "2019",
+          "count": "15198"
+        },
+        {
+          "value": "2018",
+          "count": "13627"
+        },
+        {
+          "value": "2017",
+          "count": "11484"
+        },
+        {
+          "value": "2016",
+          "count": "10380"
+        },
+        {
+          "value": "2015",
+          "count": "9047"
+        },
+        {
+          "value": "2014",
+          "count": "8915"
+        },
+        {
+          "value": "2013",
+          "count": "8301"
+        },
+        {
+          "value": "2012",
+          "count": "7022"
+        },
+        {
+          "value": "2011",
+          "count": "6440"
+        },
+        {
+          "value": "2010",
+          "count": "5886"
+        },
+        {
+          "value": "2009",
+          "count": "5689"
+        },
+        {
+          "value": "2008",
+          "count": "4849"
+        },
+        {
+          "value": "2007",
+          "count": "4738"
+        }
+      ]
+    },
+    {
+      "name": "country",
+      "values": [
+        {
+          "value": "United States",
+          "count": "53959"
+        },
+        {
+          "value": "China",
+          "count": "30659"
+        },
+        {
+          "value": "Germany",
+          "count": "29780"
+        },
+        {
+          "value": "United Kingdom",
+          "count": "27631"
+        },
+        {
+          "value": "Italy",
+          "count": "15096"
+        },
+        {
+          "value": "India",
+          "count": "12878"
+        },
+        {
+          "value": "Australia",
+          "count": "11216"
+        },
+        {
+          "value": "Canada",
+          "count": "11173"
+        },
+        {
+          "value": "France",
+          "count": "9775"
+        },
+        {
+          "value": "Spain",
+          "count": "9151"
+        },
+        {
+          "value": "Netherlands",
+          "count": "7869"
+        },
+        {
+          "value": "Japan",
+          "count": "7638"
+        },
+        {
+          "value": "Switzerland",
+          "count": "6161"
+        },
+        {
+          "value": "South Korea",
+          "count": "5002"
+        },
+        {
+          "value": "Russia",
+          "count": "4936"
+        },
+        {
+          "value": "Brazil",
+          "count": "4933"
+        },
+        {
+          "value": "Portugal",
+          "count": "4662"
+        },
+        {
+          "value": "Austria",
+          "count": "4500"
+        },
+        {
+          "value": "Sweden",
+          "count": "3986"
+        },
+        {
+          "value": "Greece",
+          "count": "3522"
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "values": [
+        {
+          "value": "Book",
+          "count": "190830"
+        },
+        {
+          "value": "Journal",
+          "count": "97702"
+        }
+      ]
+    }
+  ]
+}
