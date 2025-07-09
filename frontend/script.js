@@ -100,6 +100,31 @@ function mixResults() {
   }
 }
 
+const parseDate = (dateString) => {
+  if (!dateString) return new Date("0000-01-01");
+
+  // YYYY-MM-DD
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    const parsed = new Date(dateString);
+    console.log("Parsed Springer/SD:", parsed);
+    return parsed;
+  }
+
+  // MM/YYYY
+  if (/^\d{1,2}\/\d{4}$/.test(dateString)) {
+    const [month, year] = dateString.split("/");
+    const parsed = new Date(`${year}-${month.padStart(2, "0")}-01`);
+    console.log("Parsed AIS:", parsed);
+    return parsed;
+  }
+
+  console.log("Unparseable date:", dateString);
+  return new Date("0000-01-01");
+};
+
+
+
+
 // Ergebnisse sortieren und filtern
 function updateResultsView() {
   let resultsToDisplay = [...accumulatedResults];
@@ -109,14 +134,39 @@ function updateResultsView() {
   }
 
   switch (currentSort) {
-    case "year":
-      resultsToDisplay.sort((a, b) => (b.year || 0) - (a.year || 0));
+    case "year-desc":
+      resultsToDisplay.sort((a, b) => {
+        console.log("a:", a);
+  console.log("b:", b);
+        const dateA = parseDate(a.source === "ais" ? a.year : a.publicationDate);
+        const dateB = parseDate(b.source === "ais" ? b.year : b.publicationDate);
+        return dateB - dateA;
+      });
       break;
-    case "title":
-      resultsToDisplay.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+
+    case "year-asc":
+      resultsToDisplay.sort((a, b) => {
+        console.log("a:", a);
+  console.log("b:", b);
+        const dateA = parseDate(a.source === "ais" ? a.year : a.publicationDate);
+        const dateB = parseDate(b.source === "ais" ? b.year : b.publicationDate);
+        return dateA - dateB;
+      });
+
+      break;
+    case "title-asc":
+      resultsToDisplay.sort((a, b) =>
+        (a.title || "").localeCompare(b.title || "")
+      );
       break;
     case "title-desc":
-      resultsToDisplay.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+      resultsToDisplay.sort((a, b) =>
+        (b.title || "").localeCompare(a.title || "")
+      );
+      break;
+    case "relevance":
+    default:
+      // Belass in Originalreihenfolge
       break;
   }
 
@@ -128,6 +178,7 @@ function renderResults(results) {
   const container = document.getElementById('results');
   container.innerHTML = results.length === 0 ? '<p>Keine Ergebnisse gefunden.</p>' : '';
   if (results.length === 0) return;
+
 
   document.getElementById('load-more')?.remove();
 

@@ -23,19 +23,21 @@
 
 
 <div class="sort-filter">
-  <label for="sort-select">Sortieren nach:</label>
   <select id="sort-select" aria-label="Sortieren nach">
-    <option value="year">Relevanz</option>
-    <option value="year">Veröffentlichungsjahr</option>
-    <option value="title">Titel (A–Z)</option>
+    <option value="relevance">Relevanz</option>
+    <option value="year-desc">Jahr (neu → alt)</option>
+    <option value="year-asc">Jahr (alt → neu)</option>
+    <option value="title-asc">Titel (A–Z)</option>
     <option value="title-desc">Titel (Z–A)</option>
   </select>
-
-  <label for="openaccess-checkbox" class="openaccess-label">
+  <label>
     <input type="checkbox" id="openaccess-checkbox" />
     Nur Open Access
   </label>
+  <button id="export-csv" style="margin-top: 1em;">Ergebnisse als CSV herunterladen</button>
+
 </div>
+
 
 <div class="search-box">
   <input type="text" id="search-query" placeholder="Suche nach wissenschaftlichen Artikeln..." />
@@ -47,7 +49,6 @@
   <div id="loader" class="loader hidden"></div>
 
   <div id="results"></div>
-<button id="export-csv" style="margin-top: 1em;">Ergebnisse als CSV herunterladen</button>
 
 
 
