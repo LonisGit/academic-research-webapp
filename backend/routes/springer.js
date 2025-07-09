@@ -24,7 +24,7 @@ router.get('/search', async (req, res) => {
       title: item.title,
       authors: item.creators?.map(c => c.creator) || [],
       journal: item.publicationName || '',
-      publicationDate: item.publicationDate || '',
+      publicationDate: item.onlineDate || '',
       abstract: item.abstract || '',
       doi: item.doi || '',
       pdfLink: item.url?.find(u => u.format === 'pdf')?.value || '',

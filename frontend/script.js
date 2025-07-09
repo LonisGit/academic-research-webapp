@@ -179,6 +179,7 @@ function renderResults(results) {
   container.innerHTML = results.length === 0 ? '<p>Keine Ergebnisse gefunden.</p>' : '';
   if (results.length === 0) return;
 
+
   document.getElementById('load-more')?.remove();
 
   results.forEach((r, index) => {
