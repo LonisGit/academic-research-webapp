@@ -100,23 +100,29 @@ function mixResults() {
   }
 }
 
-function parseDate(dateString) {
-  if (!dateString) return new Date("0000-01-01"); // ganz am Ende
+const parseDate = (dateString) => {
+  if (!dateString) return new Date("0000-01-01");
 
-  // Format: YYYY-MM-DD → direkt nutzbar
+  // YYYY-MM-DD
   if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
-    return new Date(dateString);
+    const parsed = new Date(dateString);
+    console.log("Parsed Springer/SD:", parsed);
+    return parsed;
   }
 
-  // Format: MM/YYYY → umwandeln zu YYYY-MM-01
-  if (/^\d{2}\/\d{4}$/.test(dateString)) {
+  // MM/YYYY
+  if (/^\d{1,2}\/\d{4}$/.test(dateString)) {
     const [month, year] = dateString.split("/");
-    return new Date(`${year}-${month}-01`);
+    const parsed = new Date(`${year}-${month.padStart(2, "0")}-01`);
+    console.log("Parsed AIS:", parsed);
+    return parsed;
   }
 
-  // Fallback
+  console.log("Unparseable date:", dateString);
   return new Date("0000-01-01");
-}
+};
+
+
 
 
 // Ergebnisse sortieren und filtern
@@ -130,19 +136,24 @@ function updateResultsView() {
   switch (currentSort) {
     case "year-desc":
       resultsToDisplay.sort((a, b) => {
-        const da = parseDate(a.publicationDate);
-        const db = parseDate(b.publicationDate);
-        return db - da; // neu → alt
-      })
+        console.log("a:", a);
+  console.log("b:", b);
+        const dateA = parseDate(a.source === "ais" ? a.year : a.publicationDate);
+        const dateB = parseDate(b.source === "ais" ? b.year : b.publicationDate);
+        return dateB - dateA;
+      });
       break;
 
     case "year-asc":
       resultsToDisplay.sort((a, b) => {
-        const da = parseDate(a.publicationDate);
-        const db = parseDate(b.publicationDate);
-        return da - db; // alt → neu
+        console.log("a:", a);
+  console.log("b:", b);
+        const dateA = parseDate(a.source === "ais" ? a.year : a.publicationDate);
+        const dateB = parseDate(b.source === "ais" ? b.year : b.publicationDate);
+        return dateA - dateB;
       });
-      break; F
+
+      break;
     case "title-asc":
       resultsToDisplay.sort((a, b) =>
         (a.title || "").localeCompare(b.title || "")
