@@ -1,6 +1,8 @@
 let currentSource = 'all';
 let currentQuery = '';
-let currentPage = {}; //{ springer: 1, sciencedirect: 1, ais: 0 }
+let currentPage = {};
+
+let accumulatedResults = []; // zentrale Liste für Anzeige & Export
 
 let resultsBySource = {
   sciencedirect: [],
@@ -136,42 +138,43 @@ async function performSearch() {
 }
 
 async function loadNextPage(source) {
-  const page = currentPage[source] || 1;  // Default auf 1, falls undefined
-  console.log('Page:', page, 'Source:', source);
-
+  let page = currentPage[source] || 1;
   let url = `/api/${source}/search?q=${encodeURIComponent(currentQuery)}&page=${page}`;
 
-  if (source === 'ais') {
-    const start = (page - 1) * 25;
-    url = `/api/ais/search?q=${encodeURIComponent(currentQuery)}&start=${start}`;
-  }
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-  const res = await fetch(url);
-  const data = await res.json();
 
-  if (data.results && data.results.length > 0) {
-    const mapped = data.results.map(r => ({ ...r, source }));
-    resultsBySource[source].push(...mapped);
+if (data.results && data.results.length > 0) {
+  const mapped = data.results.map(r => ({ ...r, source }));
 
-    if (currentSource === 'all') {
-      mixResults();
+  resultsBySource[source].push(...mapped); // Ergebnis speichern nach Quelle
+
+  const startIndex = accumulatedResults.length;
+  accumulatedResults.push(...mapped);
+
+  if (currentSource === 'all') {
+    mixResults();
+    renderResults(accumulatedResults);
+  } else {
+    if (page === 1) {
       renderResults(accumulatedResults);
     } else {
-      if (currentPage[source] === 1) {
-        accumulatedResults = [...mapped];
-        renderResults(accumulatedResults);
-      } else {
-        accumulatedResults.push(...mapped);
-        renderNewResults(mapped);
-      }
+      renderNewResults(mapped, startIndex);
+    }
+  }
+
+  currentPage[source] = page + 1;
+}
+
     }
 
-    currentPage[source] = page + 1;
-
-  } else {
-    console.log(`Keine weiteren Ergebnisse für ${source}`);
+  } catch (err) {
+    console.error(`Fehler beim Laden von Seite ${page} für ${source}:`, err);
   }
 }
+
 
 function mixResults() {
   const maxLength = Math.max(
@@ -190,19 +193,15 @@ function mixResults() {
 
 }
 
-
-
-// Rendert komplett neu (Liste leeren und alle Ergebnisse zeigen)
 function renderResults(results) {
   const container = document.getElementById('results');
-  container.innerHTML = ''; // Liste komplett löschen
+  container.innerHTML = '';
 
   if (!results.length) {
     container.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
     return;
   }
 
-  // Alten "Mehr laden" Button entfernen (falls vorhanden)
   const existingLoadMore = document.getElementById('load-more');
   if (existingLoadMore) existingLoadMore.remove();
 
@@ -215,16 +214,13 @@ function renderResults(results) {
   addDetailsEventListeners();
 }
 
-// Hängt nur neue Ergebnisse an (Liste nicht löschen)
-function renderNewResults(newResults) {
+function renderNewResults(newResults, startIndex) {
   const container = document.getElementById('results');
-
-  // Alten "Mehr laden" Button entfernen (damit wir ihn hinten neu anhängen)
   const existingLoadMore = document.getElementById('load-more');
   if (existingLoadMore) existingLoadMore.remove();
 
-  newResults.forEach((r, index) => {
-    const div = createResultCard(r, accumulatedResults.length - newResults.length + index);
+  newResults.forEach((r, i) => {
+    const div = createResultCard(r, startIndex + i);
     container.appendChild(div);
   });
 
@@ -232,10 +228,8 @@ function renderNewResults(newResults) {
   addDetailsEventListeners();
 }
 
-// Hilfsfunktion zum Erzeugen einer Ergebnis-Karte
 function createResultCard(r, index) {
   const authors = Array.isArray(r.authors) ? r.authors.join(', ') : r.authors || 'Unbekannt';
-  // Für AIS fallback auf publication und year:
   const journal = r.journal || r.publication || 'Nicht verfügbar';
   const date = r.publicationDate || r.year || 'Unbekannt';
   const access = r.isOpenAccess ? 'Open Access' : (r.source === 'ais' ? 'Nicht geprüft' : 'Kein Open Access');
@@ -272,12 +266,9 @@ function createResultCard(r, index) {
     ${keywords}
     ${r.source === 'ais' && r.detailLink ? `<button class="details-btn" data-link="${r.detailLink}" data-index="${index}">Details laden</button>` : ''}
   `;
-
   return div;
 }
 
-
-// Fügt den "Mehr laden" Button ans Ende
 function addLoadMoreButton(container) {
   const loadMore = document.createElement('button');
   loadMore.id = 'load-more';
@@ -291,10 +282,9 @@ function addLoadMoreButton(container) {
   container.appendChild(loadMore);
 }
 
-// Event Listener für Details-Buttons (damit auch bei neu angehängten Ergebnissen funktioniert)
 function addDetailsEventListeners() {
   document.querySelectorAll('.details-btn').forEach(btn => {
-    btn.removeEventListener('click', detailsBtnHandler); // Entferne alten Listener, falls vorhanden
+    btn.removeEventListener('click', detailsBtnHandler);
     btn.addEventListener('click', detailsBtnHandler);
   });
 }

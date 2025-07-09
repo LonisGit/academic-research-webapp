@@ -11,7 +11,6 @@ async function scrapeAIS(query, page = 1) {
 
   const pageInstance = await browser.newPage();
 
-  // Realistischen User-Agent und Header setzen
   await pageInstance.setUserAgent(
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
   );
@@ -20,42 +19,65 @@ async function scrapeAIS(query, page = 1) {
     Referer: 'https://aisel.aisnet.org/',
   });
 
-  const pageSize = 25;
-  const offset = (page - 1) * pageSize;
-  const searchUrl = `https://aisel.aisnet.org/do/search/?q=${encodeURIComponent(query)}&start=${offset}`;
-
   try {
-    await pageInstance.goto(searchUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+    await pageInstance.goto('https://aisel.aisnet.org/', { waitUntil: 'domcontentloaded' });
 
     // Cookie-Banner akzeptieren (falls vorhanden)
     try {
       await pageInstance.waitForSelector('#onetrust-accept-btn-handler', { timeout: 5000 });
       await pageInstance.click('#onetrust-accept-btn-handler');
-      await pageInstance.waitForTimeout(1000);
-    } catch {
-      console.log('Kein Banner gefunden.');
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } catch {}
+
+    // Suche starten
+    await pageInstance.waitForSelector('input[name="q"]');
+    await pageInstance.type('input[name="q"]', query);
+    await pageInstance.keyboard.press('Enter');
+    await pageInstance.waitForNavigation({ waitUntil: 'networkidle2' });
+
+    // Weiterklicken falls gewünscht
+    for (let i = 1; i < page; i++) {
+      const oldTitle = await pageInstance.evaluate(() =>
+        document.querySelector('#results-list .result.query span.title')?.textContent?.trim() || ''
+      );
+
+      await pageInstance.waitForSelector('a#next-page[title="Next Page"]', { timeout: 5000 });
+      await pageInstance.click('a#next-page[title="Next Page"]');
+
+      await pageInstance.waitForFunction(
+        old => {
+          const newTitle = document.querySelector('#results-list .result.query span.title')?.textContent?.trim() || '';
+          return newTitle && newTitle !== old;
+        },
+        {},
+        oldTitle
+      );
+
+      await new Promise(resolve => setTimeout(resolve, 300));
     }
 
-    // Ergebnisse extrahieren
+    // Ergebnisse scrapen
     const articles = await pageInstance.evaluate(() => {
       const items = [];
-      document.querySelectorAll('#results-list > div.result.query').forEach(el => {
-        const title = el.querySelector('p.grid_10 > span.title')?.textContent?.trim() || '';
-        const authors = el.querySelector('p.grid_10 > span.author')?.textContent?.replace('Authors:', '').trim() || '';
-        const publication = el.querySelector('p.grid_10 > span.pub')?.textContent?.replace('Publication:', '').trim() || '';
-        const year = el.querySelector('p.grid_2.fr > span.year')?.textContent?.replace('Date:', '').trim() || '';
+      document.querySelectorAll('#results-list .result.query').forEach(el => {
+        const title = el.querySelector('span.title')?.textContent?.trim() || '';
+        const authors = el.querySelector('span.author')?.textContent?.replace('Authors:', '').trim() || '';
+        const publication = el.querySelector('span.pub')?.textContent?.replace('Publication:', '').trim() || '';
+        const year = el.querySelector('span.year')?.textContent?.replace('Date:', '').trim() || '';
         const detailLink = el.querySelector('a')?.href || '';
-
         items.push({ title, authors, publication, year, detailLink });
       });
       return items;
     });
 
-    console.log(`Gefundene Artikel auf Seite ${page}:`, articles.length);
+    console.log(`📄 AISel – Seite ${page}, Artikel: ${articles.length}`);
+    articles.forEach((a, i) => console.log(`  ${i + 1}. ${a.title}`));
+
     return articles;
-  } catch (error) {
-    console.error('Scraping fehlgeschlagen:', error.message);
-    throw error;
+
+  } catch (err) {
+    console.error('❌ Scraping fehlgeschlagen:', err.message);
+    throw err;
   } finally {
     await browser.close();
   }
