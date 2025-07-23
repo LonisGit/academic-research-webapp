@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
+//Artikel anklicken, abstract und pdfLink extrahieren
 async function scrapeAISDetails(detailLink) {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();

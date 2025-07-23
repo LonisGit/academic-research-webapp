@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
+// GET /api/springer/search?q=ai
 router.get('/search', async (req, res) => {
   const query = req.query.q;
   const page = parseInt(req.query.page) || 1;
@@ -20,6 +21,7 @@ router.get('/search', async (req, res) => {
       }
     });
 
+    //mapping der results
     const results = (response.data.records || []).map(item => ({
       title: item.title,
       authors: item.creators?.map(c => c.creator) || [],

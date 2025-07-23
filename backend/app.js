@@ -1,15 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./swagger/swagger');
 const sciencedirectRoutes = require('./routes/sciencedirect');
 const springerRoutes = require('./routes/springer');
 const scraperRoute = require('./routes/ais');
 
 
-
-require('dotenv').config(); // Umgebungsvariablen laden
+//Keys laden
+require('dotenv').config(); 
 
 const app = express();
 const PORT = 5000;
@@ -21,67 +19,15 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 app.use(cors());
 app.use(express.json());
 
-/**
- * @swagger
- * /api/sciencedirect/search:
- *   get:
- *     summary: Suche in ScienceDirect
- *     parameters:
- *       - in: query
- *         name: query
- *         required: true
- *         schema:
- *           type: string
- *         description: Der Suchbegriff für ScienceDirect
- *     responses:
- *       200:
- *         description: Erfolgreiche Antwort mit Suchergebnissen
- */
+//sciencedirect
 app.use('/api/sciencedirect', sciencedirectRoutes);
 
-/**
- * @swagger
- * /api/springer/search:
- *   get:
- *     summary: Suche in Springer Link
- *     parameters:
- *       - in: query
- *         name: query
- *         required: true
- *         schema:
- *           type: string
- *         description: Der Suchbegriff
- *     responses:
- *       200:
- *         description: Erfolgreiche Antwort mit Suchergebnis
- */
-
+//springer
 app.use('/api/springer', springerRoutes);
 
-/**
- * @swagger
- * /api/ais/details:
- *   post:
- *     summary: Lade Details zu einem AIS-Artikel
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               detailLink:
- *                 type: string
- *                 description: Link zur Detailseite (z. B. https://aisel.aisnet.org/iceb2016/67/)
- *     responses:
- *       200:
- *         description: Erfolgreiche Antwort mit Abstract, PDF-Link, etc.
- */
-
+//ais
 app.use('/api/ais', scraperRoute);
 
-// Swagger-Dokumentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Server starten
 app.listen(PORT, () => {

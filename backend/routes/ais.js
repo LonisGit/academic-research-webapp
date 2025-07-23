@@ -11,7 +11,7 @@ router.get('/search', async (req, res) => {
   if (!query) return res.status(400).json({ error: 'Query fehlt.' });
 
   try {
-    const results = await scrapeAIS(query, page); // ← einfach Seite übergeben
+    const results = await scrapeAIS(query, page);
     res.json({ source: 'AIS', query, page, count: results.length, results });
   } catch (err) {
     res.status(500).json({ error: 'Scraping fehlgeschlagen', details: err.message });
@@ -19,6 +19,7 @@ router.get('/search', async (req, res) => {
 });
 
 // POST /api/ais/details
+// einzelnen Artikel "anklicken", um Details nachzuladen
 router.post('/details', async (req, res) => {
   const { detailLink } = req.body;
 
